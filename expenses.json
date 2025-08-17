@@ -1,12 +1,12 @@
 [
     {
         "id": 1,
-        "purpose": "Rikshaw Bill",
+        "purpose": "Rikshaw",
         "amount": 50,
         "date": "2025-08-17",
         "type": "Transport",
         "comments": "Rikshaw bill from Wasi's home to print house picking up Minhaz and Shezan",
-        "persons": ["Arian Mollik Wasi"],
+        "persons": ["Arian Mollik Wasi", "Faisal Arefin", "Minhaz"],
         "receipts": {}
     },
     {

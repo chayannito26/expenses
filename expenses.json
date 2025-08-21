@@ -6,7 +6,11 @@
         "date": "2025-08-17",
         "type": "Transport",
         "comments": "Rikshaw bill from Wasi's home to print house picking up Minhaz and Shezan",
-        "persons": ["Arian Mollik Wasi", "Faisal Arefin", "Minhaz"],
+        "persons": [
+            "Arian Mollik Wasi",
+            "Faisal Arefin",
+            "Minhaz"
+        ],
         "receipts": {}
     },
     {
@@ -16,10 +20,36 @@
         "date": "2025-08-17",
         "type": "Digital",
         "comments": "Cloudflare domain registration for the official website. 10.44$*122.5=1278.9$",
-        "persons": ["Arian Mollik Wasi"],
+        "persons": [
+            "Arian Mollik Wasi"
+        ],
         "receipts": [
-            { "url": "./reciepts/cloudflare_reciept.jpg", "description": "Cloudflare Domain Purchase" },
-            { "url": "./reciepts/ebl_exchange_rage.jpg", "description": "Exchange rate of EBL Card" }
+            {
+                "url": "./receipts/cloudflare_receipt.jpg",
+                "description": "Cloudflare Domain Purchase"
+            },
+            {
+                "url": "./receipts/ebl_exchange_rage.jpg",
+                "description": "Exchange rate of EBL Card"
+            }
+        ]
+    },
+    {
+        "id": 1755775346147,
+        "purpose": "Advance Payment to Print House",
+        "amount": 2000,
+        "date": "2025-08-21",
+        "type": "Printing",
+        "persons": [
+            "Arian Mollik Wasi",
+            "Faisal Arefin"
+        ],
+        "comments": "",
+        "receipts": [
+            {
+                "description": "print_house_1.jpg",
+                "url": "./receipts/print_house_1.jpg.jpeg"
+            }
         ]
     }
 ]

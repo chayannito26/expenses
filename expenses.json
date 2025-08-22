@@ -37,5 +37,22 @@
                 "url": "./receipts/print_house_1.jpg.jpeg"
             }
         ]
+    },
+    {
+        "id": 1755881362231,
+        "purpose": "Facebook Page Boost",
+        "amount": 234.23,
+        "date": "2025-08-22",
+        "type": "Digital",
+        "persons": [
+            "Arian Mollik Wasi"
+        ],
+        "comments": "",
+        "receipts": [
+            {
+                "description": "facebook_boost_1.jpg",
+                "url": "./receipts/facebook_boost_1.jpg.jpg"
+            }
+        ]
     }
 ]

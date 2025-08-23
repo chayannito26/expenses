@@ -50,12 +50,12 @@
         "persons": [
             "Arian Mollik Wasi"
         ],
-        "comments": "",
+        "comments": "Boost the page to gain more followers",
         "receipts": [
             {
-                "url": "./receipts/facebook_boost_1_jpg.jpg?v=1755949816324",
+                "description": "Invoice",
                 "filename": "facebook_boost_1_jpg.jpg",
-                "description": "Invoice"
+                "url": "./receipts/facebook_boost_1_jpg.jpg?v=1755949816324"
             }
         ]
     },

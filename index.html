@@ -13,6 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Add Flatpickr CSS/JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <!-- Custom Styles -->
     <style>
         body {
@@ -56,7 +60,7 @@
 
         <!-- Controls: Search and Filters -->
         <div class="bg-white p-4 rounded-xl shadow-sm mb-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <!-- Search Bar -->
                 <div class="lg:col-span-1">
                     <label for="search" class="block text-sm font-medium text-gray-700 mb-1">Search</label>
@@ -66,41 +70,35 @@
                 <!-- Filter by Type -->
                 <div>
                     <label for="filter-type" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                    <select id="filter-type" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
-                        <option value="all">All Categories</option>
-                        <!-- Options will be populated by JS -->
-                    </select>
+                    <!-- Hidden input holds the value used by filtering logic -->
+                    <input type="hidden" id="filter-type" value="all">
+                    <!-- Custom select container -->
+                    <div id="filter-type-select" class="relative"></div>
                 </div>
 
                 <!-- Filter by Person -->
                 <div>
                     <label for="filter-person" class="block text-sm font-medium text-gray-700 mb-1">Person</label>
-                    <select id="filter-person" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
-                        <option value="all">All People</option>
-                        <!-- Options will be populated by JS -->
-                    </select>
+                    <input type="hidden" id="filter-person" value="all">
+                    <div id="filter-person-select" class="relative"></div>
                 </div>
 
-                <!-- Date Range Filter -->
-                <div class="lg:col-span-2">
+                <!-- Date Range Filter (single input now, no col-span) -->
+                <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Date Range</label>
-                    <div class="flex space-x-2">
-                        <input type="date" id="filter-date-start" class="flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
-                        <input type="date" id="filter-date-end" class="flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
-                    </div>
+                    <input
+                        type="text"
+                        id="filter-date-range"
+                        placeholder="Select date range"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                    >
                 </div>
 
                 <!-- Sort By -->
                 <div>
                     <label for="sort-by" class="block text-sm font-medium text-gray-700 mb-1">Sort by</label>
-                    <select id="sort-by" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
-                        <option value="date-desc" selected>Date (Newest)</option>
-                        <option value="date-asc">Date (Oldest)</option>
-                        <option value="amount-desc">Amount (High → Low)</option>
-                        <option value="amount-asc">Amount (Low → High)</option>
-                        <option value="purpose-asc">Purpose (A → Z)</option>
-                        <option value="purpose-desc">Purpose (Z → A)</option>
-                    </select>
+                    <input type="hidden" id="sort-by" value="date-desc">
+                    <div id="sort-by-select" class="relative"></div>
                 </div>
             </div>
         </div>
@@ -167,6 +165,14 @@
             // --- GLOBAL STATE ---
             let expenses = [];
 
+            // Default avatar (inline SVG as data URI) for missing person images
+            const DEFAULT_AVATAR_DATA_URI = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#94a3b8">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6v1H4v-1z"/>
+                </svg>`
+            );
+
             // --- BACKUP DATA ---
             const backupExpenses = [
                 {
@@ -210,11 +216,16 @@
             const tableBody = document.getElementById('expense-table-body');
             const totalSpendingEl = document.getElementById('total-spending');
             const searchInput = document.getElementById('search');
-            const typeFilter = document.getElementById('filter-type');
-            const personFilter = document.getElementById('filter-person');
-            const dateStartFilter = document.getElementById('filter-date-start');
-            const dateEndFilter = document.getElementById('filter-date-end');
-            const sortSelect = document.getElementById('sort-by');
+            const typeFilter = document.getElementById('filter-type');      // hidden input
+            const personFilter = document.getElementById('filter-person');  // hidden input
+            const dateRangeFilter = document.getElementById('filter-date-range');
+            const sortSelect = document.getElementById('sort-by');          // hidden input
+
+            // Custom select containers
+            const typeSelectContainer = document.getElementById('filter-type-select');
+            const personSelectContainer = document.getElementById('filter-person-select');
+            const sortSelectContainer = document.getElementById('sort-by-select');
+
             const modal = document.getElementById('receipt-modal');
             const closeModalBtn = document.getElementById('close-modal-btn');
             const receiptImagesContainer = document.getElementById('receipt-images-container');
@@ -244,29 +255,51 @@
              * Initializes the application after data is ready.
              */
             function initializeApp() {
-                // Populate person filter
+                // Build data lists
                 const people = [...new Set(expenses.flatMap(e => e.persons))].sort();
-                people.forEach(person => {
-                    const option = document.createElement('option');
-                    option.value = person;
-                    option.textContent = person;
-                    personFilter.appendChild(option);
+                const categories = [...new Set(expenses.map(e => e.type))].sort();
+
+                // Simple counts for nicer dropdown UX
+                const personCounts = {};
+                const categoryCounts = {};
+                expenses.forEach(e => {
+                    categoryCounts[e.type] = (categoryCounts[e.type] || 0) + 1;
+                    e.persons.forEach(p => personCounts[p] = (personCounts[p] || 0) + 1);
                 });
 
-                // Populate category filter dynamically
-                const categories = [...new Set(expenses.map(e => e.type))].sort();
-                categories.forEach(category => {
-                    const option = document.createElement('option');
-                    option.value = category;
-                    option.textContent = category;
-                    typeFilter.appendChild(option);
-                });
+                // Render custom selects
+                renderCategorySelect(categories, categoryCounts);
+                renderPersonSelect(people, personCounts);
+                renderSortSelect();
+
+                // Initialize Flatpickr range picker
+                if (window.flatpickr && dateRangeFilter) {
+                    flatpickr(dateRangeFilter, {
+                        mode: 'range',
+                        dateFormat: 'Y-m-d',
+                        allowInput: true,
+                        onChange: (selectedDates) => {
+                            const [start, end] = selectedDates;
+                            dateRangeFilter.dataset.start = start ? formatDateISO(start) : '';
+                            dateRangeFilter.dataset.end = end ? formatDateISO(end) : '';
+                            // Trigger filtering
+                            dateRangeFilter.dispatchEvent(new Event('change', { bubbles: true }));
+                        },
+                        onClose: (selectedDates, value) => {
+                            if (!value) {
+                                dateRangeFilter.dataset.start = '';
+                                dateRangeFilter.dataset.end = '';
+                                dateRangeFilter.dispatchEvent(new Event('change', { bubbles: true }));
+                            }
+                        }
+                    });
+                }
 
                 // Initial render via filters to apply default sort
                 applyFilters();
 
                 // Event Listeners
-                [searchInput, typeFilter, personFilter, dateStartFilter, dateEndFilter, sortSelect].forEach(el => {
+                [searchInput, typeFilter, personFilter, dateRangeFilter, sortSelect].forEach(el => {
                     el.addEventListener('input', applyFilters);
                     el.addEventListener('change', applyFilters);
                 });
@@ -275,6 +308,354 @@
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal) closeModal();
                 });
+
+                // Close dropdowns on outside click or Escape
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.custom-select')) closeAllDropdowns();
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') closeAllDropdowns();
+                });
+            }
+
+            /**
+             * Build a reusable custom select.
+             * options: [{ value, label, dotClass?, count?, avatarClass?, initials?, imageUrl? }]
+             */
+            function buildCustomSelect(container, hiddenInput, options, config = {}) {
+                container.classList.add('custom-select', 'relative');
+                container.innerHTML = '';
+
+                let selected = options.find(o => o.value === hiddenInput.value) || options[0];
+
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-left flex items-center justify-between hover:border-indigo-400 focus:ring-2 focus:ring-indigo-500 transition';
+                button.setAttribute('aria-haspopup', 'listbox');
+
+                const leftWrap = document.createElement('span');
+                leftWrap.className = 'flex items-center truncate';
+
+                // Prefix in button (dot / avatar / image / icon)
+                const prefix = document.createElement('span');
+                prefix.setAttribute('data-prefix', '');
+                prefix.className = 'mr-2 flex items-center shrink-0';
+                leftWrap.appendChild(prefix);
+
+                const labelSpan = document.createElement('span');
+                labelSpan.className = 'truncate';
+                labelSpan.textContent = selected.label;
+                leftWrap.appendChild(labelSpan);
+
+                const chevron = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                chevron.setAttribute('viewBox', '0 0 20 20');
+                chevron.setAttribute('fill', 'currentColor');
+                chevron.setAttribute('data-chevron', '1');
+                chevron.classList.add('w-5', 'h-5', 'text-gray-500', 'ml-3', 'shrink-0', 'transition-transform', 'duration-200');
+                chevron.innerHTML = '<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />';
+                button.appendChild(leftWrap);
+                button.appendChild(chevron);
+
+                const menu = document.createElement('div');
+                menu.className = 'absolute z-30 mt-2 w-full bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden hidden';
+                const list = document.createElement('ul');
+                list.className = 'max-h-64 overflow-auto py-1';
+
+                // Helpers to render visuals
+                function renderDot(dotClass) {
+                    const dot = document.createElement('span');
+                    dot.className = `inline-block w-2.5 h-2.5 rounded-full ${dotClass}`;
+                    return dot;
+                }
+                function renderAvatar(initials, avatarClass) {
+                    const av = document.createElement('span');
+                    av.className = `inline-flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-semibold text-white ${avatarClass}`;
+                    av.textContent = initials || '';
+                    return av;
+                }
+                function renderPersonImageOrAvatar(opt) {
+                    // Single <img> with guarded fallbacks; final fallback to initials avatar.
+                    const wrap = document.createElement('span');
+                    wrap.className = 'inline-flex items-center';
+
+                    const avatarFallback = renderAvatar(opt.initials, opt.avatarClass || 'bg-gray-400');
+                    avatarFallback.classList.add('hidden');
+
+                    const img = document.createElement('img');
+                    img.alt = opt.label;
+                    img.className = 'w-5 h-5 rounded-full object-cover';
+                    img.src = opt.imageUrl || DEFAULT_AVATAR_DATA_URI;
+
+                    let triedDefault = false;
+                    img.onerror = () => {
+                        if (!triedDefault) {
+                            triedDefault = true;
+                            img.src = DEFAULT_AVATAR_DATA_URI;
+                        } else {
+                            img.classList.add('hidden');
+                            avatarFallback.classList.remove('hidden');
+                        }
+                    };
+
+                    wrap.appendChild(img);
+                    wrap.appendChild(avatarFallback);
+                    return wrap;
+                }
+                function renderSortIcon(value) {
+                    // small left icon for sort options
+                    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                    svg.setAttribute('viewBox', '0 0 20 20');
+                    svg.setAttribute('fill', 'currentColor');
+                    svg.classList.add('w-4', 'h-4', 'text-gray-500', 'mr-2', 'shrink-0');
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    const map = {
+                        'date-desc': 'M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zM2 9h16v7a2 2 0 01-2 2H4a2 2 0 01-2-2V9zm6 2a1 1 0 000 2h4a1 1 0 100-2H8z', // calendar with bar
+                        'date-asc':  'M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zM2 9h16v7a2 2 0 01-2 2H4a2 2 0 01-2-2V9zm3 7l3-3 3 3H5z', // calendar with up caret
+                        'amount-desc': 'M10 2a1 1 0 01.993.883L11 3v1.055c1.928.256 3.5 1.39 3.5 3.195 0 1.735-1.206 2.61-3.07 3.095l-.43.11V14h3.5a1 1 0 010 2H11v1a1 1 0 01-2 0v-1H6.5a1 1 0 010-2H9v-3.137l-.298-.07C6.89 10.23 5.5 9.319 5.5 7.25c0-1.806 1.572-2.94 3.5-3.196V3a1 1 0 011-1z', // currency-like
+                        'amount-asc':  'M3 16a1 1 0 011-1h5v-2H7a1 1 0 110-2h2V9H6a1 1 0 110-2h3V5a1 1 0 112 0v2h3a1 1 0 110 2h-3v2h2a1 1 0 110 2h-2v2h5a1 1 0 110 2H4a1 1 0 01-1-1z',
+                        'purpose-asc': 'M4 6a2 2 0 012-2h8a2 2 0 012 2v1H4V6zm0 3h12v5a2 2 0 01-2 2H6a2 2 0 01-2-2V9zm2 2v3h8v-3H6z', // A-Z folder-ish
+                        'purpose-desc':'M4 5a2 2 0 012-2h5a2 2 0 012 2v1H4V5zm0 3h13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8zm2 2v4h9v-4H6z'  // Z-A folder-ish
+                    };
+                    path.setAttribute('d', map[value] || map['date-desc']);
+                    svg.appendChild(path);
+                    return svg;
+                }
+
+                function setButtonPrefix(opt) {
+                    prefix.innerHTML = '';
+                    if (config.showDots && opt.dotClass) {
+                        const dot = renderDot(opt.dotClass);
+                        dot.classList.add('mr-0'); // spacing already handled by prefix container
+                        prefix.appendChild(dot);
+                    } else if (config.showAvatar) {
+                        prefix.appendChild(renderPersonImageOrAvatar(opt));
+                    } else if (config.getIcon) {
+                        prefix.appendChild(config.getIcon(opt.value));
+                    }
+                }
+                setButtonPrefix(selected);
+
+                options.forEach(opt => {
+                    const li = document.createElement('li');
+                    li.className = 'flex items-center justify-between px-3 py-2 cursor-pointer hover:bg-gray-50';
+                    li.setAttribute('role', 'option');
+                    li.dataset.value = opt.value;
+
+                    const left = document.createElement('div');
+                    left.className = 'flex items-center min-w-0';
+
+                    // Left visuals (priority: dot -> avatar/image -> icon)
+                    if (config.showDots && opt.dotClass) {
+                        const dotWrap = document.createElement('span');
+                        dotWrap.className = 'mr-2';
+                        dotWrap.appendChild(renderDot(opt.dotClass));
+                        left.appendChild(dotWrap);
+                    } else if (config.showAvatar) {
+                        const avWrap = document.createElement('span');
+                        avWrap.className = 'mr-2';
+                        avWrap.appendChild(renderPersonImageOrAvatar(opt));
+                        left.appendChild(avWrap);
+                    } else if (config.getIcon) {
+                        left.appendChild(renderSortIcon(opt.value));
+                    }
+
+                    const text = document.createElement('span');
+                    text.className = 'truncate text-gray-700';
+                    text.textContent = opt.label;
+                    left.appendChild(text);
+
+                    const right = document.createElement('div');
+                    right.className = 'flex items-center space-x-2';
+
+                    if (typeof opt.count === 'number') {
+                        const cnt = document.createElement('span');
+                        cnt.className = 'text-xs text-gray-400';
+                        cnt.textContent = opt.count;
+                        right.appendChild(cnt);
+                    }
+
+                    if (opt.value === selected.value) {
+                        const check = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                        check.setAttribute('viewBox', '0 0 20 20');
+                        check.setAttribute('fill', 'currentColor');
+                        check.setAttribute('data-check', '1');
+                        check.classList.add('w-4', 'h-4', 'text-indigo-600');
+                        check.innerHTML = '<path fill-rule="evenodd" d="M16.704 5.29a1 1 0 010 1.415l-7.07 7.07a1 1 0 01-1.415 0L3.296 9.85A1 1 0 114.71 8.435l3.092 3.092 6.363-6.363a1 1 0 011.415 0z" clip-rule="evenodd"/>';
+                        right.appendChild(check);
+                        li.classList.add('bg-indigo-50');
+                    }
+
+                    li.appendChild(left);
+                    li.appendChild(right);
+
+                    li.addEventListener('click', () => {
+                        // Update selection state visuals (fixes checkmark bug)
+                        list.querySelectorAll('li').forEach(el => {
+                            el.classList.remove('bg-indigo-50');
+                            const chk = el.querySelector('[data-check]');
+                            if (chk) chk.remove();
+                        });
+                        const newCheck = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                        newCheck.setAttribute('viewBox', '0 0 20 20');
+                        newCheck.setAttribute('fill', 'currentColor');
+                        newCheck.setAttribute('data-check', '1');
+                        newCheck.classList.add('w-4', 'h-4', 'text-indigo-600');
+                        newCheck.innerHTML = '<path fill-rule="evenodd" d="M16.704 5.29a1 1 0 010 1.415l-7.07 7.07a1 1 0 01-1.415 0L3.296 9.85A1 1 0 114.71 8.435l3.092 3.092 6.363-6.363a1 1 0 011.415 0z" clip-rule="evenodd"/>';
+                        li.querySelector('div.flex.items-center.space-x-2')?.appendChild(newCheck);
+                        li.classList.add('bg-indigo-50');
+
+                        // Update selected value
+                        selected = opt;
+                        hiddenInput.value = opt.value;
+
+                        // Update button visuals
+                        labelSpan.textContent = opt.label;
+                        setButtonPrefix(opt);
+
+                        // Close and notify
+                        menu.classList.add('hidden');
+                        chevron.classList.remove('rotate-180');
+                        hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+                    });
+
+                    list.appendChild(li);
+                });
+
+                menu.appendChild(list);
+
+                button.addEventListener('click', () => {
+                    const isOpen = !menu.classList.contains('hidden');
+                    closeAllDropdowns();
+                    if (!isOpen) {
+                        menu.classList.remove('hidden');
+                        chevron.classList.add('rotate-180');
+                    }
+                });
+
+                container.appendChild(button);
+                container.appendChild(menu);
+            }
+
+            function closeAllDropdowns() {
+                document.querySelectorAll('.custom-select .absolute').forEach(m => m.classList.add('hidden'));
+                // Only rotate chevrons, not checkmarks
+                document.querySelectorAll('.custom-select [data-chevron]').forEach(s => s.classList.remove('rotate-180'));
+            }
+
+            // Category colored dot: stable mapping from category text to Tailwind bg-* color
+            function getCategoryDotColor(category) {
+                const dots = [
+                    'bg-blue-500','bg-purple-500','bg-yellow-500','bg-pink-500',
+                    'bg-indigo-500','bg-red-500','bg-green-500','bg-amber-500'
+                ];
+                let hash = 0;
+                for (let i = 0; i < category.length; i++) {
+                    hash = category.charCodeAt(i) + ((hash << 5) - hash);
+                }
+                return dots[Math.abs(hash % dots.length)];
+            }
+
+            // Add: sanitize a name to a safe filename (spaces -> underscores, strip/underscore unsafe)
+            function sanitizeForFilename(name) {
+                return name
+                    .trim()
+                    .replace(/\s+/g, '_')          // spaces -> underscores
+                    .replace(/[^A-Za-z0-9_-]/g, '_') // non-safe chars -> underscore
+                    .replace(/_+/g, '_');          // collapse multiple underscores
+            }
+
+            // Small pastel badge for table remains as-is
+            function getCategoryColor(category) {
+                const colors = [
+                    "bg-blue-100 text-blue-800", "bg-purple-100 text-purple-800",
+                    "bg-yellow-100 text-yellow-800", "bg-purple-100 text-purple-800",
+                    "bg-pink-100 text-pink-800", "bg-indigo-100 text-indigo-800",
+                    "bg-red-100 text-red-800", "bg-green-100 text-green-800"
+                ];
+                let hash = 0;
+                for (let i = 0; i < category.length; i++) {
+                    hash = category.charCodeAt(i) + ((hash << 5) - hash);
+                }
+                const index = Math.abs(hash % colors.length);
+                return colors[index];
+            }
+
+            function renderCategorySelect(categories, categoryCounts) {
+                const opts = [
+                    { value: 'all', label: 'All Categories', dotClass: 'bg-gray-400', count: expenses.length },
+                    ...categories.map(c => ({
+                        value: c,
+                        label: c,
+                        dotClass: getCategoryDotColor(c),
+                        count: categoryCounts[c] || 0
+                    }))
+                ];
+                buildCustomSelect(typeSelectContainer, typeFilter, opts, { showDots: true });
+            }
+
+            function renderPersonSelect(people, personCounts) {
+                // Try to load ./people/{sanitized_name}.png. Fallback to default icon (then initials).
+                const avatarColors = ['bg-indigo-500','bg-emerald-500','bg-rose-500','bg-sky-500','bg-amber-500','bg-violet-500','bg-cyan-500','bg-fuchsia-500'];
+                const opts = [
+                    { value: 'all', label: 'All People', count: expenses.length, avatarClass: 'bg-gray-400', initials: '*' }
+                    ,
+                    ...people.map(p => {
+                        let hash = 0; for (let i = 0; i < p.length; i++) hash = p.charCodeAt(i) + ((hash << 5) - hash);
+                        const avatarClass = avatarColors[Math.abs(hash % avatarColors.length)];
+                        const initials = p.split(' ').map(s => s[0]).join('').slice(0,2).toUpperCase();
+                        const imageUrl = `./people/${sanitizeForFilename(p)}.png`;
+                        return { value: p, label: p, count: personCounts[p] || 0, avatarClass, initials, imageUrl };
+                    })
+                ];
+                buildCustomSelect(personSelectContainer, personFilter, opts, { showAvatar: true });
+            }
+
+            function renderSortSelect() {
+                const opts = [
+                    { value: 'date-desc',   label: 'Date (Newest)' },
+                    { value: 'date-asc',    label: 'Date (Oldest)' },
+                    { value: 'amount-desc', label: 'Amount (High → Low)' },
+                    { value: 'amount-asc',  label: 'Amount (Low → High)' },
+                    { value: 'purpose-asc', label: 'Purpose (A → Z)' },
+                    { value: 'purpose-desc',label: 'Purpose (Z → A)' }
+                ];
+                buildCustomSelect(sortSelectContainer, sortSelect, opts, {
+                    getIcon: (value) => {
+                        // Reuse the renderer defined inside build via a lightweight proxy
+                        const tmp = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); // placeholder
+                        // We can't access inner function here; reconstruct icon similarly:
+                        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                        svg.setAttribute('viewBox', '0 0 20 20');
+                        svg.setAttribute('fill', 'currentColor');
+                        svg.classList.add('w-4', 'h-4', 'text-gray-500', 'mr-2', 'shrink-0');
+                        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        const map = {
+                            'date-desc': 'M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zM2 9h16v7a2 2 0 01-2 2H4a2 2 0 01-2-2V9zm6 2a1 1 0 000 2h4a1 1 0 100-2H8z',
+                            'date-asc':  'M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zM2 9h16v7a2 2 0 01-2 2H4a2 2 0 01-2-2V9zm3 7l3-3 3 3H5z',
+                            'amount-desc': 'M10 2a1 1 0 01.993.883L11 3v1.055c1.928.256 3.5 1.39 3.5 3.195 0 1.735-1.206 2.61-3.07 3.095l-.43.11V14h3.5a1 1 0 010 2H11v1a1 1 0 01-2 0v-1H6.5a1 1 0 010-2H9v-3.137l-.298-.07C6.89 10.23 5.5 9.319 5.5 7.25c0-1.806 1.572-2.94 3.5-3.196V3a1 1 0 011-1z',
+                            'amount-asc':  'M3 16a1 1 0 011-1h5v-2H7a1 1 0 110-2h2V9H6a1 1 0 110-2h3V5a1 1 0 112 0v2h3a1 1 0 110 2h-3v2h2a1 1 0 110 2h-2v2h5a1 1 0 110 2H4a1 1 0 01-1-1z',
+                            'purpose-asc': 'M4 6a2 2 0 012-2h8a2 2 0 012 2v1H4V6zm0 3h12v5a2 2 0 01-2 2H6a2 2 0 01-2-2V9zm2 2v3h8v-3H6z',
+                            'purpose-desc':'M4 5a2 2 0 012-2h5a2 2 0 012 2v1H4V5zm0 3h13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8zm2 2v4h9v-4H6z'
+                        };
+                        path.setAttribute('d', map[value] || map['date-desc']);
+                        svg.appendChild(path);
+                        return svg;
+                    }
+                });
+            }
+
+            // Helper: render tiny avatar chips with name for the People column
+            function generatePeopleChipsHTML(persons) {
+                return persons.map(name => {
+                    const imgUrl = `./people/${sanitizeForFilename(name)}.png`;
+                    return `
+                        <span class="inline-flex items-center bg-gray-50 border border-gray-200 rounded-full px-2 py-0.5">
+                            <img src="${imgUrl}" alt="${name}" class="w-4 h-4 rounded-full object-cover mr-1 ring-1 ring-white"
+                                 onerror="if(!this.dataset.fbk){this.dataset.fbk=1;this.src='${DEFAULT_AVATAR_DATA_URI}'}" />
+                            <span class="text-xs text-gray-700">${name}</span>
+                        </span>
+                    `;
+                }).join('');
             }
 
             /**
@@ -285,8 +666,13 @@
                 const searchTerm = searchInput.value.toLowerCase().trim();
                 const type = typeFilter.value;
                 const person = personFilter.value;
-                const startDate = dateStartFilter.value;
-                const endDate = dateEndFilter.value;
+                let startDate = dateRangeFilter?.dataset.start || '';
+                let endDate = dateRangeFilter?.dataset.end || '';
+                if ((!startDate || !endDate) && dateRangeFilter?.value?.includes('to')) {
+                    const parts = dateRangeFilter.value.split('to').map(s => s.trim());
+                    startDate = parts[0] || '';
+                    endDate = parts[1] || '';
+                }
                 const sort = sortSelect.value;
 
                 if (searchTerm) {
@@ -361,7 +747,11 @@
                                 <span>${expense.persons.join(', ')}</span> &bull; <span>${formatDate(expense.date)}</span>
                             </div>
                         </td>
-                        <td class="px-6 py-4 hidden md:table-cell">${expense.persons.join(', ')}</td>
+                        <td class="px-6 py-4 hidden md:table-cell">
+                            <div class="flex flex-wrap gap-1">
+                                ${generatePeopleChipsHTML(expense.persons)}
+                            </div>
+                        </td>
                         <td class="px-6 py-4 hidden lg:table-cell">${formatDate(expense.date)}</td>
                         <td class="px-6 py-4 hidden sm:table-cell">
                             <span class="px-2 py-1 text-xs font-medium rounded-full ${badgeClass}">
@@ -453,6 +843,14 @@
             function formatDate(dateString) {
                 const date = new Date(dateString + 'T00:00:00');
                 return new Intl.DateTimeFormat('en-GB', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
+            }
+
+            // Helper: ISO format for Date object (YYYY-MM-DD)
+            function formatDateISO(dateObj) {
+                const y = dateObj.getFullYear();
+                const m = String(dateObj.getMonth() + 1).padStart(2, '0');
+                const d = String(dateObj.getDate()).padStart(2, '0');
+                return `${y}-${m}-${d}`;
             }
 
             // --- START THE APP ---

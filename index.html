@@ -56,7 +56,7 @@
 
         <!-- Controls: Search and Filters -->
         <div class="bg-white p-4 rounded-xl shadow-sm mb-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
                 <!-- Search Bar -->
                 <div class="lg:col-span-1">
                     <label for="search" class="block text-sm font-medium text-gray-700 mb-1">Search</label>
@@ -82,12 +82,25 @@
                 </div>
 
                 <!-- Date Range Filter -->
-                <div>
+                <div class="lg:col-span-2">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Date Range</label>
                     <div class="flex space-x-2">
-                        <input type="date" id="filter-date-start" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
-                        <input type="date" id="filter-date-end" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        <input type="date" id="filter-date-start" class="flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        <input type="date" id="filter-date-end" class="flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
                     </div>
+                </div>
+
+                <!-- Sort By -->
+                <div>
+                    <label for="sort-by" class="block text-sm font-medium text-gray-700 mb-1">Sort by</label>
+                    <select id="sort-by" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        <option value="date-desc" selected>Date (Newest)</option>
+                        <option value="date-asc">Date (Oldest)</option>
+                        <option value="amount-desc">Amount (High → Low)</option>
+                        <option value="amount-asc">Amount (Low → High)</option>
+                        <option value="purpose-asc">Purpose (A → Z)</option>
+                        <option value="purpose-desc">Purpose (Z → A)</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -124,7 +137,7 @@
                 </table>
                  <div id="no-results" class="text-center py-12 text-gray-500 hidden">
                     <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2z" />
+                      <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h14a2 2 0 012 2V10a2 2 0 01-2 2H4a2 2 0 01-2-2z" />
                     </svg>
                     <h3 class="mt-2 text-sm font-medium text-gray-900">No expenses found</h3>
                     <p class="mt-1 text-sm text-gray-500">Try adjusting your search or filter criteria.</p>
@@ -201,6 +214,7 @@
             const personFilter = document.getElementById('filter-person');
             const dateStartFilter = document.getElementById('filter-date-start');
             const dateEndFilter = document.getElementById('filter-date-end');
+            const sortSelect = document.getElementById('sort-by');
             const modal = document.getElementById('receipt-modal');
             const closeModalBtn = document.getElementById('close-modal-btn');
             const receiptImagesContainer = document.getElementById('receipt-images-container');
@@ -248,11 +262,11 @@
                     typeFilter.appendChild(option);
                 });
 
-                // Initial render
-                renderTable(expenses);
+                // Initial render via filters to apply default sort
+                applyFilters();
 
                 // Event Listeners
-                [searchInput, typeFilter, personFilter, dateStartFilter, dateEndFilter].forEach(el => {
+                [searchInput, typeFilter, personFilter, dateStartFilter, dateEndFilter, sortSelect].forEach(el => {
                     el.addEventListener('input', applyFilters);
                     el.addEventListener('change', applyFilters);
                 });
@@ -273,6 +287,7 @@
                 const person = personFilter.value;
                 const startDate = dateStartFilter.value;
                 const endDate = dateEndFilter.value;
+                const sort = sortSelect.value;
 
                 if (searchTerm) {
                     filteredExpenses = filteredExpenses.filter(e =>
@@ -292,6 +307,26 @@
                 if (endDate) {
                     filteredExpenses = filteredExpenses.filter(e => e.date <= endDate);
                 }
+
+                // Sort
+                filteredExpenses.sort((a, b) => {
+                    switch (sort) {
+                        case 'date-asc':
+                            return new Date(a.date) - new Date(b.date);
+                        case 'date-desc':
+                            return new Date(b.date) - new Date(a.date);
+                        case 'amount-asc':
+                            return a.amount - b.amount;
+                        case 'amount-desc':
+                            return b.amount - a.amount;
+                        case 'purpose-asc':
+                            return a.purpose.localeCompare(b.purpose);
+                        case 'purpose-desc':
+                            return b.purpose.localeCompare(a.purpose);
+                        default:
+                            return 0;
+                    }
+                });
 
                 renderTable(filteredExpenses);
             }

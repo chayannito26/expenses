@@ -76,15 +76,20 @@
             }
             .expense-table tfoot td {
                 padding: 0.75rem 0.25rem !important;
-                display: table-cell !important;
             }
-            /* Fix footer layout on mobile - show only two cells spanning the width */
+            /* Hide same footer columns as body columns on mobile */
+            .expense-table tfoot td:nth-child(2),
+            .expense-table tfoot td:nth-child(3),
+            .expense-table tfoot td:nth-child(4),
+            .expense-table tfoot td:nth-child(6) {
+                display: none !important;
+            }
+            /* Set widths for visible footer columns */
             .expense-table tfoot td:first-child {
                 width: 50% !important;
             }
-            .expense-table tfoot td:nth-child(2) {
+            .expense-table tfoot td:nth-child(5) {
                 width: 50% !important;
-                display: table-cell !important;
             }
         }
     </style>
@@ -169,8 +174,12 @@
                     </tbody>
                     <tfoot class="bg-gray-100 font-semibold text-gray-900">
                         <tr>
-                            <td class="px-6 py-4 text-right" colspan="1">Total Spending</td>
-                            <td id="total-spending" class="px-6 py-4 text-right" colspan="2">৳0</td>
+                            <td class="px-6 py-4 text-right">Total Spending</td>
+                            <td class="px-6 py-4"></td>
+                            <td class="px-6 py-4"></td>
+                            <td class="px-6 py-4"></td>
+                            <td id="total-spending" class="px-6 py-4 text-right">৳0</td>
+                            <td class="px-6 py-4"></td>
                         </tr>
                     </tfoot>
                 </table>

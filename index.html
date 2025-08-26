@@ -594,7 +594,7 @@
             }
 
             function renderPersonSelect(people, personCounts) {
-                // Try to load ./people/{sanitized_name}.png. Fallback to default icon (then initials).
+                // Try to load ./people/{sanitized_name}.jpg. Fallback to default icon (then initials).
                 const avatarColors = ['bg-indigo-500','bg-emerald-500','bg-rose-500','bg-sky-500','bg-amber-500','bg-violet-500','bg-cyan-500','bg-fuchsia-500'];
                 const opts = [
                     { value: 'all', label: 'All People', count: expenses.length, avatarClass: 'bg-gray-400', initials: '*' }
@@ -603,7 +603,7 @@
                         let hash = 0; for (let i = 0; i < p.length; i++) hash = p.charCodeAt(i) + ((hash << 5) - hash);
                         const avatarClass = avatarColors[Math.abs(hash % avatarColors.length)];
                         const initials = p.split(' ').map(s => s[0]).join('').slice(0,2).toUpperCase();
-                        const imageUrl = `./people/${sanitizeForFilename(p)}.png`;
+                        const imageUrl = `./people/${sanitizeForFilename(p)}.jpg`;
                         return { value: p, label: p, count: personCounts[p] || 0, avatarClass, initials, imageUrl };
                     })
                 ];
@@ -647,7 +647,7 @@
             // Helper: render tiny avatar chips with name for the People column
             function generatePeopleChipsHTML(persons) {
                 return persons.map(name => {
-                    const imgUrl = `./people/${sanitizeForFilename(name)}.png`;
+                    const imgUrl = `./people/${sanitizeForFilename(name)}.jpg`;
                     return `
                         <span class="inline-flex items-center bg-gray-50 border border-gray-200 rounded-full px-2 py-0.5">
                             <img src="${imgUrl}" alt="${name}" class="w-4 h-4 rounded-full object-cover mr-1 ring-1 ring-white"

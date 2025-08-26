@@ -67,7 +67,7 @@
             }
             /* Hide all columns except first (purpose), amount, and receipts on mobile */
             .expense-table th:nth-child(2),
-            .expense-table th:nth-child(3), 
+            .expense-table th:nth-child(3),
             .expense-table th:nth-child(4),
             .expense-table td:nth-child(2),
             .expense-table td:nth-child(3),
@@ -78,20 +78,18 @@
                 padding: 0.75rem 0.25rem !important;
             }
             /* Hide same footer columns as body columns on mobile */
-            .expense-table tfoot td:nth-child(1),
             .expense-table tfoot td:nth-child(2),
             .expense-table tfoot td:nth-child(3),
+            .expense-table tfoot td:nth-child(4),
             .expense-table tfoot td:nth-child(6) {
                 display: none !important;
             }
-            /* Set widths and alignment for visible footer columns on mobile */
-            .expense-table tfoot td:nth-child(4) {
+            /* Set widths for visible footer columns */
+            .expense-table tfoot td:first-child {
                 width: 50% !important;
-                text-align: left !important;
             }
             .expense-table tfoot td:nth-child(5) {
                 width: 50% !important;
-                text-align: right !important;
             }
         }
     </style>
@@ -176,10 +174,10 @@
                     </tbody>
                     <tfoot class="bg-gray-100 font-semibold text-gray-900">
                         <tr>
-                            <td class="px-6 py-4"></td>
-                            <td class="px-6 py-4"></td>
-                            <td class="px-6 py-4"></td>
                             <td class="px-6 py-4 text-right">Total Spending</td>
+                            <td class="px-6 py-4"></td>
+                            <td class="px-6 py-4"></td>
+                            <td class="px-6 py-4"></td>
                             <td id="total-spending" class="px-6 py-4 text-right">৳0</td>
                             <td class="px-6 py-4"></td>
                         </tr>

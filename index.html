@@ -45,6 +45,48 @@
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
+        /* Mobile table responsive fixes */
+        @media (max-width: 768px) {
+            .expense-table {
+                table-layout: fixed !important;
+                width: 100% !important;
+                min-width: unset !important;
+            }
+            .expense-table td:first-child {
+                width: 50% !important;
+            }
+            .expense-table td:nth-child(5) {
+                width: 30% !important;
+            }
+            .expense-table td:last-child {
+                width: 20% !important;
+            }
+            .expense-table td, .expense-table th {
+                padding: 0.75rem 0.25rem !important;
+                font-size: 0.75rem !important;
+            }
+            /* Hide all columns except first (purpose), amount, and receipts on mobile */
+            .expense-table th:nth-child(2),
+            .expense-table th:nth-child(3), 
+            .expense-table th:nth-child(4),
+            .expense-table td:nth-child(2),
+            .expense-table td:nth-child(3),
+            .expense-table td:nth-child(4) {
+                display: none !important;
+            }
+            .expense-table tfoot td {
+                padding: 0.75rem 0.25rem !important;
+                display: table-cell !important;
+            }
+            /* Fix footer layout on mobile - show only two cells spanning the width */
+            .expense-table tfoot td:first-child {
+                width: 50% !important;
+            }
+            .expense-table tfoot td:nth-child(2) {
+                width: 50% !important;
+                display: table-cell !important;
+            }
+        }
     </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -106,7 +148,7 @@
         <!-- Expense Table / List -->
         <div class="bg-white rounded-xl shadow-sm overflow-hidden">
             <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left text-gray-500">
+                <table class="w-full text-sm text-left text-gray-500 expense-table">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-100">
                         <tr>
                             <th scope="col" class="px-6 py-3">Purpose of expense</th>
@@ -127,9 +169,8 @@
                     </tbody>
                     <tfoot class="bg-gray-100 font-semibold text-gray-900">
                         <tr>
-                            <td class="px-6 py-4 text-right" colspan="4">Total Spending</td>
-                            <td id="total-spending" class="px-6 py-4 text-right">৳0</td>
-                            <td class="px-6 py-4"></td>
+                            <td class="px-6 py-4 text-right" colspan="1">Total Spending</td>
+                            <td id="total-spending" class="px-6 py-4 text-right" colspan="2">৳0</td>
                         </tr>
                     </tfoot>
                 </table>

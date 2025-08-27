@@ -791,6 +791,15 @@
             function renderTable(data) {
                 tableBody.innerHTML = '';
 
+                // Update total spending label based on person filter
+                const person = personFilter.value;
+                const totalLabelTd = document.querySelector('tfoot td.text-right');
+                if (person !== 'all') {
+                    totalLabelTd.textContent = `Total spending by ${person}`;
+                } else {
+                    totalLabelTd.textContent = 'Total Spending';
+                }
+
                 if (data.length === 0) {
                     noResultsDiv.classList.remove('hidden');
                     totalSpendingEl.textContent = formatCurrency(0);

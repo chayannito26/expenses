@@ -717,7 +717,7 @@
                 return persons.map(name => {
                     const imgUrl = `./people/${sanitizeForFilename(name)}.jpg`;
                     return `
-                        <span class="inline-flex items-center bg-gray-50 border border-gray-200 rounded-full px-2 py-0.5">
+                        <span class="inline-flex items-center bg-gray-50 border border-gray-200 rounded-full px-2 py-0.5 cursor-pointer person-chip" data-person="${name}" title="Filter by ${name}">
                             <img src="${imgUrl}" alt="${name}" class="w-4 h-4 rounded-full object-cover mr-1 ring-1 ring-white"
                                  onerror="if(!this.dataset.fbk){this.dataset.fbk=1;this.src='${DEFAULT_AVATAR_DATA_URI}'}" />
                             <span class="text-xs text-gray-700">${name}</span>
@@ -845,6 +845,90 @@
                         </td>
                     `;
                     tableBody.appendChild(row);
+                });
+
+                // Add click event for person chips to filter by person
+                tableBody.querySelectorAll('.person-chip').forEach(chip => {
+                    chip.addEventListener('click', function() {
+                        const personName = chip.getAttribute('data-person');
+                        personFilter.value = personName;
+                        personFilter.dispatchEvent(new Event('change', { bubbles: true }));
+
+                        // Update custom select UI for person filter
+                        const selectContainer = personSelectContainer;
+                        const optionsList = selectContainer.querySelectorAll('ul li');
+                        optionsList.forEach(li => {
+                            if (li.dataset.value === personName) {
+                                li.classList.add('bg-indigo-50');
+                                // Update checkmark
+                                if (!li.querySelector('[data-check]')) {
+                                    const newCheck = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                                    newCheck.setAttribute('viewBox', '0 0 20 20');
+                                    newCheck.setAttribute('fill', 'currentColor');
+                                    newCheck.setAttribute('data-check', '1');
+                                    newCheck.classList.add('w-4', 'h-4', 'text-indigo-600');
+                                    newCheck.innerHTML = '<path fill-rule="evenodd" d="M16.704 5.29a1 1 0 010 1.415l-7.07 7.07a1 1 0 01-1.415 0L3.296 9.85A1 1 0 114.71 8.435l3.092 3.092 6.363-6.363a1 1 0 011.415 0z" clip-rule="evenodd"/>';
+                                    li.querySelector('div.flex.items-center.space-x-2')?.appendChild(newCheck);
+                                }
+                            } else {
+                                li.classList.remove('bg-indigo-50');
+                                const chk = li.querySelector('[data-check]');
+                                if (chk) chk.remove();
+                            }
+                        });
+                        // Update button label and avatar
+                        const selected = optionsList.length ? Array.from(optionsList).find(li => li.dataset.value === personName) : null;
+                        if (selected) {
+                            const labelSpan = selectContainer.querySelector('button span.truncate');
+                            if (labelSpan) labelSpan.textContent = personName;
+                            // Update avatar
+                            const prefix = selectContainer.querySelector('button [data-prefix]');
+                            if (prefix) {
+                                prefix.innerHTML = '';
+                                // Find avatar from selected option
+                                const avatar = selected.querySelector('span.inline-flex.items-center');
+                                if (avatar) prefix.appendChild(avatar.cloneNode(true));
+                            }
+                        }
+                    });
+                });
+
+                // Listen for manual changes to person filter and update custom select UI
+                personFilter.addEventListener('change', function() {
+                    const personName = personFilter.value;
+                    const selectContainer = personSelectContainer;
+                    const optionsList = selectContainer.querySelectorAll('ul li');
+                    optionsList.forEach(li => {
+                        if (li.dataset.value === personName) {
+                            li.classList.add('bg-indigo-50');
+                            if (!li.querySelector('[data-check]')) {
+                                const newCheck = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                                newCheck.setAttribute('viewBox', '0 0 20 20');
+                                newCheck.setAttribute('fill', 'currentColor');
+                                newCheck.setAttribute('data-check', '1');
+                                newCheck.classList.add('w-4', 'h-4', 'text-indigo-600');
+                                newCheck.innerHTML = '<path fill-rule="evenodd" d="M16.704 5.29a1 1 0 010 1.415l-7.07 7.07a1 1 0 01-1.415 0L3.296 9.85A1 1 0 114.71 8.435l3.092 3.092 6.363-6.363a1 1 0 011.415 0z" clip-rule="evenodd"/>';
+                                li.querySelector('div.flex.items-center.space-x-2')?.appendChild(newCheck);
+                            }
+                        } else {
+                            li.classList.remove('bg-indigo-50');
+                            const chk = li.querySelector('[data-check]');
+                            if (chk) chk.remove();
+                        }
+                    });
+                    // Update button label and avatar
+                    const selected = optionsList.length ? Array.from(optionsList).find(li => li.dataset.value === personName) : null;
+                    if (selected) {
+                        const labelSpan = selectContainer.querySelector('button span.truncate');
+                        if (labelSpan) labelSpan.textContent = personName;
+                        // Update avatar
+                        const prefix = selectContainer.querySelector('button [data-prefix]');
+                        if (prefix) {
+                            prefix.innerHTML = '';
+                            const avatar = selected.querySelector('span.inline-flex.items-center');
+                            if (avatar) prefix.appendChild(avatar.cloneNode(true));
+                        }
+                    }
                 });
 
                 totalSpendingEl.textContent = formatCurrency(total);

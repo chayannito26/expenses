@@ -77,5 +77,21 @@
                 "description": "Money Receipt"
             }
         ]
+    },
+    {
+        "id": 1757749087726,
+        "purpose": "Reels of Wedding Banner shoot advance",
+        "amount": 4000,
+        "date": "2025-09-13",
+        "type": "Camera",
+        "persons": [
+            "Arian Mollik Wasi",
+            "Faisal Arefin",
+            "Minhaz",
+            "Sahariar Nafiz",
+            "Nawshad Anam"
+        ],
+        "comments": "For banner shoot",
+        "receipts": []
     }
 ]

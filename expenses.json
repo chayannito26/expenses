@@ -6,7 +6,7 @@
         "date": "2025-08-17",
         "type": "Digital",
         "persons": [
-            "Arian Mollik Wasi"
+            "Wasi"
         ],
         "comments": "Cloudflare domain registration for the official website. 10.44$*122.5=1278.9$",
         "receipts": [
@@ -29,8 +29,8 @@
         "date": "2025-08-21",
         "type": "Printing",
         "persons": [
-            "Arian Mollik Wasi",
-            "Faisal Arefin"
+            "Wasi",
+            "Shezan"
         ],
         "comments": "",
         "receipts": [
@@ -48,7 +48,7 @@
         "date": "2025-08-22",
         "type": "Digital",
         "persons": [
-            "Arian Mollik Wasi"
+            "Wasi"
         ],
         "comments": "Boost the page to gain more followers",
         "receipts": [
@@ -66,8 +66,8 @@
         "date": "2025-08-23",
         "type": "Printing",
         "persons": [
-            "Arian Mollik Wasi",
-            "Faisal Arefin"
+            "Wasi",
+            "Shezan"
         ],
         "comments": "",
         "receipts": [
@@ -85,13 +85,19 @@
         "date": "2025-09-13",
         "type": "Camera",
         "persons": [
-            "Arian Mollik Wasi",
-            "Faisal Arefin",
+            "Wasi",
+            "Shezan",
             "Minhaz",
-            "Sahariar Nafiz",
-            "Nawshad Anam"
+            "Nafiz",
+            "Anam"
         ],
         "comments": "For banner shoot",
-        "receipts": []
+        "receipts": [
+            {
+                "url": "./receipts/reels_of_wedding-1757852171039.jpeg",
+                "filename": "reels_of_wedding-1757852171039.jpeg",
+                "description": "Voucher"
+            }
+        ]
     }
 ]

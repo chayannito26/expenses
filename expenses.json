@@ -100,66 +100,103 @@
             }
         ]
     },
-        {
-            "id": 1757854907198.1,
-            "purpose": "Banner Reveal - Decoration",
-            "amount": 370,
-            "date": "2025-09-14",
-            "type": "Decoration",
-            "persons": ["Nafiz", "Anam", "Minhaz", "Tanvir"],
-            "comments": "Decoration 180+190=370",
-            "receipts": [
-                {
-                    "url": "./receipts/jori_14-1757854107780.jpeg",
-                    "filename": "jori_14-1757854107780.jpeg",
-                    "description": "Decoration on spot"
-                },
-                {
-                    "url": "./receipts/jori_13-1757854166928.jpg",
-                    "filename": "jori_13-1757854166928.jpg",
-                    "description": "Decoration day before"
-                }
-            ]
-        },
-        {
-            "id": 1757854907198.2,
-            "purpose": "Banner Reveal - Hooks",
-            "amount": 130,
-            "date": "2025-09-14",
-            "type": "Decoration",
-            "persons": ["Tanvir", "Minhaz"],
-            "comments": "Hooks 50+80=130",
-            "receipts": [
-                {
-                    "url": "./receipts/hook_2-1757854136530.jpg?v=1757854144389",
-                    "filename": "hook_2-1757854136530.jpg",
-                    "description": "Hook on spot"
-                },
-                {
-                    "url": "./receipts/Hook_3-1757854187363.jpeg?v=1757854221292",
-                    "filename": "Hook_3-1757854187363.jpeg",
-                    "description": "Hook day before"
-                }
-            ]
-        },
-        {
-            "id": 1757854907198.3,
-            "purpose": "Banner Reveal - Food",
-            "amount": 1050,
-            "date": "2025-09-14",
-            "type": "Decoration",
-            "persons": ["Tanvir", "Minhaz"],
-            "comments": "Food for cameraman 70*13+60tk riksha vara+80tk biscuits = 1050",
-            "receipts": []
-        },
-        {
-            "id": 1757854907198.4,
-            "purpose": "Banner Reveal - Printing",
-            "amount": 50,
-            "date": "2025-09-14",
-            "type": "Decoration",
-            "persons": ["Wasi"],
-            "comments": "Printing on spot 50",
-            "receipts": []
-        }
+    {
+        "id": 1757854907198.1,
+        "purpose": "Banner Reveal - Decoration",
+        "amount": 370,
+        "date": "2025-09-14",
+        "type": "Decoration",
+        "persons": [
+            "Nafiz",
+            "Anam",
+            "Minhaz",
+            "Tanvir"
+        ],
+        "comments": "Decoration 180+190=370",
+        "receipts": [
+            {
+                "url": "./receipts/jori_14-1757854107780.jpeg",
+                "filename": "jori_14-1757854107780.jpeg",
+                "description": "Decoration on spot"
+            },
+            {
+                "url": "./receipts/jori_13-1757854166928.jpg",
+                "filename": "jori_13-1757854166928.jpg",
+                "description": "Decoration day before"
+            }
+        ]
+    },
+    {
+        "id": 1757854907198.2,
+        "purpose": "Banner Reveal - Hooks",
+        "amount": 130,
+        "date": "2025-09-14",
+        "type": "Decoration",
+        "persons": [
+            "Tanvir",
+            "Minhaz"
+        ],
+        "comments": "Hooks 50+80=130",
+        "receipts": [
+            {
+                "url": "./receipts/hook_2-1757854136530.jpg?v=1757854144389",
+                "filename": "hook_2-1757854136530.jpg",
+                "description": "Hook on spot"
+            },
+            {
+                "url": "./receipts/Hook_3-1757854187363.jpeg?v=1757854221292",
+                "filename": "Hook_3-1757854187363.jpeg",
+                "description": "Hook day before"
+            }
+        ]
+    },
+    {
+        "id": 1757854907198.3,
+        "purpose": "Banner Reveal - Food",
+        "amount": 1050,
+        "date": "2025-09-14",
+        "type": "Decoration",
+        "persons": [
+            "Tanvir",
+            "Minhaz"
+        ],
+        "comments": "Food for cameraman 70*13+60tk riksha vara+80tk biscuits = 1050",
+        "receipts": []
+    },
+    {
+        "id": 1757854907198.4,
+        "purpose": "Banner Reveal - Printing",
+        "amount": 50,
+        "date": "2025-09-14",
+        "type": "Decoration",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Printing on spot 50",
+        "receipts": []
+    },
+    {
+        "id": 1758458007601,
+        "purpose": "Lyrics Making",
+        "amount": 4000,
+        "date": "2025-09-21",
+        "type": "Theme Song",
+        "persons": [
+            "Wasi",
+            "Shezan"
+        ],
+        "comments": "",
+        "receipts": [
+            {
+                "url": "./receipts/theme_lyrics_asking-1758457981743.jpeg",
+                "filename": "theme_lyrics_asking-1758457981743.jpeg",
+                "description": "Asking Payment for Lyrics"
+            },
+            {
+                "url": "./receipts/lyrics_payment_done-1758457999279.jpg",
+                "filename": "lyrics_payment_done-1758457999279.jpg",
+                "description": "Lyrics payment done"
+            }
+        ]
+    }
 ]

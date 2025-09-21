@@ -185,17 +185,17 @@
             "Wasi",
             "Shezan"
         ],
-        "comments": "",
+        "comments": "Making lyrics for theme song by rafi vai of Dark Slayer",
         "receipts": [
             {
-                "url": "./receipts/theme_lyrics_asking-1758457981743.jpeg",
+                "description": "Asking Payment for Lyrics",
                 "filename": "theme_lyrics_asking-1758457981743.jpeg",
-                "description": "Asking Payment for Lyrics"
+                "url": "./receipts/theme_lyrics_asking-1758457981743.jpeg"
             },
             {
-                "url": "./receipts/lyrics_payment_done-1758457999279.jpg",
+                "description": "Lyrics payment done",
                 "filename": "lyrics_payment_done-1758457999279.jpg",
-                "description": "Lyrics payment done"
+                "url": "./receipts/lyrics_payment_done-1758457999279.jpg"
             }
         ]
     }

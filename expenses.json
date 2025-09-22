@@ -198,5 +198,27 @@
                 "url": "./receipts/lyrics_payment_done-1758457999279.jpg"
             }
         ]
+    },
+    {
+        "id": 1758542989476,
+        "purpose": "Reel shoot Decoration",
+        "amount": 200,
+        "date": "2025-09-22",
+        "type": "Decoration",
+        "persons": [
+            "Ridoy"
+        ],
+        "comments": "",
+        "receipts": []
+    },
+    {
+        "id": 1758543017953,
+        "purpose": "Food & Drinks",
+        "amount": 210,
+        "date": "2025-09-22",
+        "type": "Food",
+        "persons": [],
+        "comments": "food for cinematography",
+        "receipts": []
     }
 ]

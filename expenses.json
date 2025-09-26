@@ -220,5 +220,28 @@
         "persons": [],
         "comments": "food for cinematography",
         "receipts": []
+    },
+    {
+        "id": 1758916508172,
+        "purpose": "Theme song recording",
+        "amount": 6000,
+        "date": "2025-09-26",
+        "type": "Theme Song",
+        "persons": [
+            "Arian Mollik Wasi"
+        ],
+        "comments": "Payment for tuning and composing theme song",
+        "receipts": [
+            {
+                "url": "./receipts/bkash_theme_song_1-1758916422447.jpg",
+                "filename": "bkash_theme_song_1-1758916422447.jpg",
+                "description": "bKash payment"
+            },
+            {
+                "url": "./receipts/theme_song_payment_received-1758916440549.jpeg",
+                "filename": "theme_song_payment_received-1758916440549.jpeg",
+                "description": "Payment received"
+            }
+        ]
     }
 ]

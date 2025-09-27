@@ -228,19 +228,19 @@
         "date": "2025-09-26",
         "type": "Theme Song",
         "persons": [
-            "Arian Mollik Wasi"
+            "Wasi"
         ],
         "comments": "Payment for tuning and composing theme song",
         "receipts": [
             {
-                "url": "./receipts/bkash_theme_song_1-1758916422447.jpg",
+                "description": "bKash payment",
                 "filename": "bkash_theme_song_1-1758916422447.jpg",
-                "description": "bKash payment"
+                "url": "./receipts/bkash_theme_song_1-1758916422447.jpg"
             },
             {
-                "url": "./receipts/theme_song_payment_received-1758916440549.jpeg",
+                "description": "Payment received",
                 "filename": "theme_song_payment_received-1758916440549.jpeg",
-                "description": "Payment received"
+                "url": "./receipts/theme_song_payment_received-1758916440549.jpeg"
             }
         ]
     },
@@ -251,14 +251,14 @@
         "date": "2025-09-27",
         "type": "Digital",
         "persons": [
-            "Arian Mollik Wasi"
+            "Wasi"
         ],
         "comments": "boosting the registration deadline post",
         "receipts": [
             {
-                "url": "./receipts/fb_boost_2.pdf?v=1758970508876",
+                "description": "Tax invoice",
                 "filename": "fb_boost_2.pdf",
-                "description": "Tax invoice"
+                "url": "./receipts/fb_boost_2.pdf?v=1758970508876"
             }
         ]
     }

@@ -243,5 +243,23 @@
                 "description": "Payment received"
             }
         ]
+    },
+    {
+        "id": 1758970478988,
+        "purpose": "Facebook Page Boost",
+        "amount": 216.41,
+        "date": "2025-09-27",
+        "type": "Digital",
+        "persons": [
+            "Arian Mollik Wasi"
+        ],
+        "comments": "boosting the registration deadline post",
+        "receipts": [
+            {
+                "url": "./receipts/2025-09-26T06-10_Transaction_24758752420479558-24603705725984227-1758970440187.pdf",
+                "filename": "2025-09-26T06-10_Transaction_24758752420479558-24603705725984227-1758970440187.pdf",
+                "description": "2025 09 26t06 10 Transaction #24758752420479558 24603705725984227"
+            }
+        ]
     }
 ]

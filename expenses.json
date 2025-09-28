@@ -314,12 +314,31 @@
         "id": 1759030155100,
         "purpose": "Emergency coupon book",
         "amount": 300,
-        "date": "2025-09-28",
+        "date": "2025-09-27",
         "type": "Printing",
         "persons": [
             "Wasi"
         ],
         "comments": "Coupon book to be used in case of emergency",
         "receipts": []
+    },
+    {
+        "id": 1759073475075,
+        "purpose": "Banner fixing",
+        "amount": 145,
+        "date": "2025-09-28",
+        "type": "Printing",
+        "persons": [
+            "Maruf",
+            "Kazi"
+        ],
+        "comments": "Emergency hook and needle thread purchase for fixing banner",
+        "receipts": [
+            {
+                "url": "./receipts/banner_fixing-1759073682714.jpg",
+                "filename": "banner_fixing-1759073682714.jpg",
+                "description": "Cash memo"
+            }
+        ]
     }
 ]

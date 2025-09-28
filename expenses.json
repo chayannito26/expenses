@@ -275,14 +275,14 @@
         "date": "2025-09-27",
         "type": "Digital",
         "persons": [
-            "Arian Mollik Wasi"
+            "Wasi"
         ],
         "comments": "Will make more later at a lower price",
         "receipts": [
             {
-                "url": "./receipts/nwrr-1759026921412.jpg",
+                "description": "Invoice",
                 "filename": "nwrr-1759026921412.jpg",
-                "description": "Invoice"
+                "url": "./receipts/nwrr-1759026921412.jpg"
             }
         ]
     },
@@ -309,5 +309,17 @@
                 "description": "Received"
             }
         ]
+    },
+    {
+        "id": 1759030155100,
+        "purpose": "Emergency coupon book",
+        "amount": 300,
+        "date": "2025-09-28",
+        "type": "Printing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Coupon book to be used in case of emergency",
+        "receipts": []
     }
 ]

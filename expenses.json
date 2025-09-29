@@ -340,5 +340,18 @@
                 "description": "Cash memo"
             }
         ]
+    },
+    {
+        "id": 1759138182843,
+        "purpose": "Banner Reveal - Food",
+        "amount": 1050,
+        "date": "2025-09-14",
+        "type": "Food",
+        "persons": [
+            "Tanvir",
+            "Minhaz"
+        ],
+        "comments": "Food for cameraman 70*13+60tk riksha vara+80tk biscuits = 1050",
+        "receipts": []
     }
 ]

@@ -312,15 +312,21 @@
     },
     {
         "id": 1759030155100,
-        "purpose": "Emergency coupon book",
-        "amount": 300,
+        "purpose": "Emergency coupon book and envelopes",
+        "amount": 410,
         "date": "2025-09-27",
         "type": "Printing",
         "persons": [
             "Wasi"
         ],
-        "comments": "Coupon book to be used in case of emergency",
-        "receipts": []
+        "comments": "Coupon book to be used in case of emergency. 300 tk page, 50 tk binding. also 60 tk for envelopes to send sponsor letters",
+        "receipts": [
+            {
+                "url": "./receipts/coupon_book_emergency.jpg?v=1759223785825",
+                "filename": "coupon_book_emergency.jpg",
+                "description": "Voucher"
+            }
+        ]
     },
     {
         "id": 1759073475075,

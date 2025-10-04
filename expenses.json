@@ -223,9 +223,18 @@
         "amount": 210,
         "date": "2025-09-22",
         "type": "Food",
-        "persons": [],
-        "comments": "food for cinematography",
-        "receipts": []
+        "persons": [
+            "Tanvir",
+            "Maruf"
+        ],
+        "comments": "food for cinematography 70 rikshaw vara 30 coke 110",
+        "receipts": [
+            {
+                "url": "./receipts/modhumita_1.jpg?v=1759588517713",
+                "filename": "modhumita_1.jpg",
+                "description": "Modhumita voucherf"
+            }
+        ]
     },
     {
         "id": 1758916508172,
@@ -252,7 +261,7 @@
     },
     {
         "id": 1758970478988,
-        "purpose": "Facebook Page Boost",
+        "purpose": "Facebook Post Boost",
         "amount": 216.41,
         "date": "2025-09-27",
         "type": "Digital",
@@ -344,6 +353,84 @@
                 "url": "./receipts/banner_fixing-1759073682714.jpg",
                 "filename": "banner_fixing-1759073682714.jpg",
                 "description": "Cash memo"
+            }
+        ]
+    },
+    {
+        "id": 1759588568442,
+        "purpose": "Banner Reveal - Food",
+        "amount": 1050,
+        "date": "2025-09-14",
+        "type": "Food",
+        "persons": [
+            "Tanvir",
+            "Minhaz"
+        ],
+        "comments": "Food for cameraman 70*13+60tk riksha vara+80tk biscuits = 1050",
+        "receipts": [
+            {
+                "url": "./receipts/modhumita_2-1759588564964.jpg",
+                "filename": "modhumita_2-1759588564964.jpg",
+                "description": "Modhumita Voucher"
+            }
+        ]
+    },
+    {
+        "id": 1759588700276,
+        "purpose": "Sponsor letter stationary",
+        "amount": 210,
+        "date": "2025-10-04",
+        "type": "Printing",
+        "persons": [
+            "Shezan"
+        ],
+        "comments": "things to send sponsor letters",
+        "receipts": [
+            {
+                "url": "./receipts/stationary_1-1759588628895.jpg?v=1759588662980",
+                "filename": "stationary_1-1759588628895.jpg",
+                "description": "Scale, Gum, Fluid"
+            },
+            {
+                "url": "./receipts/kham-1759588656325.jpg",
+                "filename": "kham-1759588656325.jpg",
+                "description": "100 pcs envelope"
+            }
+        ]
+    },
+    {
+        "id": 1759588830971,
+        "purpose": "Sponsor letter to Square",
+        "amount": 50,
+        "date": "2025-10-04",
+        "type": "Sponsors",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Postage for sending one letter via Sundarban Courier",
+        "receipts": [
+            {
+                "url": "./receipts/postage_1-1759588829001.jpg",
+                "filename": "postage_1-1759588829001.jpg",
+                "description": "Postage voucher"
+            }
+        ]
+    },
+    {
+        "id": 1759589162101,
+        "purpose": "Facebook Reel Boost",
+        "amount": 216.41,
+        "date": "2025-09-26",
+        "type": "Digital",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Boosing the promo video with car",
+        "receipts": [
+            {
+                "description": "Tax Invoice",
+                "filename": "fb_boost_3-1759589160156.jpg",
+                "url": "./receipts/fb_boost_3-1759589160156.jpg"
             }
         ]
     }

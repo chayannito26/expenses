@@ -150,25 +150,6 @@
             }
         ]
     },
-        {
-        "id": 1759589238266,
-        "purpose": "Banner Reveal - Food",
-        "amount": 1050,
-        "date": "2025-09-14",
-        "type": "Food",
-        "persons": [
-            "Tanvir",
-            "Minhaz"
-        ],
-        "comments": "Food for cameraman 70*13+60tk riksha vara+80tk biscuits = 1050",
-        "receipts": [
-            {
-                "url": "./receipts/modhumita_1-1759589237287.jpg",
-                "filename": "modhumita_1-1759589237287.jpg",
-                "description": "Modhumita Voucher"
-            }
-        ]
-    },
     {
         "id": 1758458007601,
         "purpose": "Lyrics Making",

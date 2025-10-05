@@ -338,15 +338,14 @@
         "date": "2025-09-14",
         "type": "Food",
         "persons": [
-            "Tanvir",
-            "Minhaz"
+            "Tanvir"
         ],
         "comments": "Food for cameraman 70*13+60tk riksha vara+80tk biscuits = 1050",
         "receipts": [
             {
-                "url": "./receipts/modhumita_2-1759588564964.jpg",
+                "description": "Modhumita Voucher",
                 "filename": "modhumita_2-1759588564964.jpg",
-                "description": "Modhumita Voucher"
+                "url": "./receipts/modhumita_2-1759588564964.jpg"
             }
         ]
     },

@@ -407,5 +407,23 @@
                 "url": "./receipts/fb_boost_3-1759589160156.jpg"
             }
         ]
+    },
+    {
+        "id": 1759668301291,
+        "purpose": "Phone recharge for calling 1st batch",
+        "amount": 753,
+        "date": "2025-10-05",
+        "type": "Marketing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "69+24+24+24+24+24+24+39+19+24+29+24+24+29+24+39+29+24+24+24+24+29+35+19+24+19+19+19=753",
+        "receipts": [
+            {
+                "url": "./receipts/recharge_grid-1759668111895.jpg",
+                "filename": "recharge_grid-1759668111895.jpg",
+                "description": "Recharge Screenshots"
+            }
+        ]
     }
 ]

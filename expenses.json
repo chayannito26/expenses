@@ -425,5 +425,23 @@
                 "description": "Recharge Screenshots"
             }
         ]
+    },
+    {
+        "id": 1760024871714,
+        "purpose": "Banner + Coupon + Logo",
+        "amount": 6000,
+        "date": "2025-10-09",
+        "type": "Printing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Final payment to print house",
+        "receipts": [
+            {
+                "url": "./receipts/print_house_3.jpg?v=1760024799242",
+                "filename": "print_house_3.jpg",
+                "description": "Voucher"
+            }
+        ]
     }
 ]

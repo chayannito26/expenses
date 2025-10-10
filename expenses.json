@@ -46,7 +46,7 @@
         "purpose": "Facebook Page Boost",
         "amount": 234.23,
         "date": "2025-08-22",
-        "type": "Digital",
+        "type": "Marketing",
         "persons": [
             "Wasi"
         ],
@@ -239,7 +239,7 @@
         "purpose": "Facebook Post Boost",
         "amount": 216.41,
         "date": "2025-09-27",
-        "type": "Digital",
+        "type": "Marketing",
         "persons": [
             "Wasi"
         ],
@@ -354,21 +354,21 @@
         "purpose": "Sponsor letter stationary",
         "amount": 210,
         "date": "2025-10-04",
-        "type": "Printing",
+        "type": "Sponsors",
         "persons": [
             "Shezan"
         ],
         "comments": "things to send sponsor letters",
         "receipts": [
             {
-                "url": "./receipts/stationary_1-1759588628895.jpg?v=1759588662980",
+                "description": "Scale, Gum, Fluid",
                 "filename": "stationary_1-1759588628895.jpg",
-                "description": "Scale, Gum, Fluid"
+                "url": "./receipts/stationary_1-1759588628895.jpg?v=1759588662980"
             },
             {
-                "url": "./receipts/kham-1759588656325.jpg",
+                "description": "100 pcs envelope",
                 "filename": "kham-1759588656325.jpg",
-                "description": "100 pcs envelope"
+                "url": "./receipts/kham-1759588656325.jpg"
             }
         ]
     },
@@ -395,7 +395,7 @@
         "purpose": "Facebook Reel Boost",
         "amount": 216.41,
         "date": "2025-09-26",
-        "type": "Digital",
+        "type": "Marketing",
         "persons": [
             "Wasi"
         ],
@@ -441,6 +441,24 @@
                 "url": "./receipts/print_house_3.jpg?v=1760024799242",
                 "filename": "print_house_3.jpg",
                 "description": "Voucher"
+            }
+        ]
+    },
+    {
+        "id": 1760103918921,
+        "purpose": "Postage to send sponsor letters",
+        "amount": 395,
+        "date": "2025-10-05",
+        "type": "Sponsors",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Stamp price for sending sponsor letters",
+        "receipts": [
+            {
+                "url": "./receipts/postage-1760103917930.jpg",
+                "filename": "postage-1760103917930.jpg",
+                "description": "Postage"
             }
         ]
     }

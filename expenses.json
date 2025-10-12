@@ -461,5 +461,24 @@
                 "description": "Postage"
             }
         ]
+    },
+    {
+        "id": 1760296459610,
+        "purpose": "Dark Slayer Advance",
+        "amount": 4000,
+        "date": "2025-10-12",
+        "type": "Band",
+        "persons": [
+            "Wasi",
+            "Shezan"
+        ],
+        "comments": "Advance payment for Local Band",
+        "receipts": [
+            {
+                "url": "./receipts/dark_slayer_1.jpeg?v=1760296444145",
+                "filename": "dark_slayer_1.jpeg",
+                "description": "Payment Confirmation"
+            }
+        ]
     }
 ]

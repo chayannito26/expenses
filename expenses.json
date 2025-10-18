@@ -498,5 +498,53 @@
                 "description": "Invoice 68edee210a9f47.95818342"
             }
         ]
+    },
+    {
+        "id": 1760809816691,
+        "purpose": "Graffiti",
+        "amount": 11340,
+        "date": "2025-10-18",
+        "type": "Graffiti",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Graffiti supplies and payment for hadi vai. 3340 supplies 8000 to hadi vai",
+        "receipts": [
+            {
+                "url": "./receipts/paint_1-1760809535412.jpg",
+                "filename": "paint_1-1760809535412.jpg",
+                "description": "Anticutter"
+            },
+            {
+                "url": "./receipts/paint_2-1760809554596.jpg",
+                "filename": "paint_2-1760809554596.jpg",
+                "description": "Container for paint"
+            },
+            {
+                "url": "./receipts/paint_3-1760809573011.jpeg",
+                "filename": "paint_3-1760809573011.jpeg",
+                "description": "Color spray"
+            },
+            {
+                "url": "./receipts/paint_4-1760809589846.jpeg",
+                "filename": "paint_4-1760809589846.jpeg",
+                "description": "Paint roller"
+            },
+            {
+                "url": "./receipts/paint_5-1760809603064.jpg?v=1760809608666",
+                "filename": "paint_5-1760809603064.jpg",
+                "description": "Paint"
+            },
+            {
+                "url": "./receipts/paint_6-1760809625977.jpeg",
+                "filename": "paint_6-1760809625977.jpeg",
+                "description": "White paint"
+            },
+            {
+                "url": "./receipts/paint_7-1760809655959.jpg",
+                "filename": "paint_7-1760809655959.jpg",
+                "description": "White paint 2"
+            }
+        ]
     }
 ]

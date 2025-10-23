@@ -27,7 +27,7 @@
         "purpose": "Advance Payment to Print House",
         "amount": 2000,
         "date": "2025-08-21",
-        "type": "Printing",
+        "type": "Banner",
         "persons": [
             "Wasi",
             "Shezan"
@@ -35,9 +35,9 @@
         "comments": "",
         "receipts": [
             {
-                "url": "./receipts/print_house_1.jpg?v=1755949726095",
+                "description": "Voucher",
                 "filename": "print_house_1.jpg",
-                "description": "Voucher"
+                "url": "./receipts/print_house_1.jpg?v=1755949726095"
             }
         ]
     },
@@ -64,7 +64,7 @@
         "purpose": "Advance Payment to Print House",
         "amount": 8000,
         "date": "2025-08-23",
-        "type": "Printing",
+        "type": "Banner",
         "persons": [
             "Wasi",
             "Shezan"
@@ -72,9 +72,9 @@
         "comments": "",
         "receipts": [
             {
-                "url": "./receipts/print_house_2.jpg?v=1755953317304",
+                "description": "Money Receipt",
                 "filename": "print_house_2.jpg",
-                "description": "Money Receipt"
+                "url": "./receipts/print_house_2.jpg?v=1755953317304"
             }
         ]
     },
@@ -546,5 +546,37 @@
                 "description": "White paint 2"
             }
         ]
+    },
+    {
+        "id": 1761229882766,
+        "purpose": "Envelope for invitation card",
+        "amount": 280,
+        "date": "2025-10-22",
+        "type": "Printing",
+        "persons": [
+            "Wasi",
+            "Shezan"
+        ],
+        "comments": "Buying printable envelopes for invitation card ",
+        "receipts": [
+            {
+                "description": "Voucher",
+                "filename": "receipt_1-1761229881050.jpg",
+                "url": "./receipts/receipt_1-1761229881050.jpg"
+            }
+        ]
+    },
+    {
+        "id": 1761229994874,
+        "purpose": "Cheap envelope for invitation card",
+        "amount": 75,
+        "date": "2025-10-21",
+        "type": "Printing",
+        "persons": [
+            "Wasi",
+            "Shezan"
+        ],
+        "comments": "Non printable low quality envelopes for invitation cards ",
+        "receipts": []
     }
 ]

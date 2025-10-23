@@ -482,24 +482,6 @@
         ]
     },
     {
-        "id": 1760425098912,
-        "purpose": "Voice call blasting",
-        "amount": 1000,
-        "date": "2025-10-14",
-        "type": "Marketing",
-        "persons": [
-            "Wasi"
-        ],
-        "comments": "Payment for bulk calling everyone",
-        "receipts": [
-            {
-                "url": "./receipts/invoice_68edee210a9f47_95818342-1760425086818.jpg",
-                "filename": "invoice_68edee210a9f47_95818342-1760425086818.jpg",
-                "description": "Invoice 68edee210a9f47.95818342"
-            }
-        ]
-    },
-    {
         "id": 1760809816691,
         "purpose": "Graffiti",
         "amount": 11340,

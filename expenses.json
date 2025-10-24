@@ -560,5 +560,23 @@
         ],
         "comments": "Non printable low quality envelopes for invitation cards ",
         "receipts": []
+    },
+    {
+        "id": 1761280300056,
+        "purpose": "Cardstock for printing invitation cards",
+        "amount": 912,
+        "date": "2025-10-05",
+        "type": "Printing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "For invitation cards",
+        "receipts": [
+            {
+                "url": "./receipts/daraz_1-1761280297446.jpeg",
+                "filename": "daraz_1-1761280297446.jpeg",
+                "description": "Daraz order screenshot"
+            }
+        ]
     }
 ]

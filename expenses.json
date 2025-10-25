@@ -578,5 +578,41 @@
                 "description": "Daraz order screenshot"
             }
         ]
+    },
+    {
+        "id": 1761419081192,
+        "purpose": "Facebook post design",
+        "amount": 1000,
+        "date": "2025-10-23",
+        "type": "Marketing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Payment to graphic designer",
+        "receipts": [
+            {
+                "url": "./receipts/payment_bkash_nwrr-1761419078946.jpeg",
+                "filename": "payment_bkash_nwrr-1761419078946.jpeg",
+                "description": "bKash payment"
+            }
+        ]
+    },
+    {
+        "id": 1761420503343,
+        "purpose": "Bank Advance",
+        "amount": 100000,
+        "date": "2025-10-25",
+        "type": "Band",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Advance payment to AvoidRafa",
+        "receipts": [
+            {
+                "url": "./receipts/ebl_band-1761420488763.jpg",
+                "filename": "ebl_band-1761420488763.jpg",
+                "description": "Payment to Band Manager Rais"
+            }
+        ]
     }
 ]

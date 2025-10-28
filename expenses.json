@@ -614,5 +614,48 @@
                 "description": "Payment to Band Manager Rais"
             }
         ]
+    },
+    {
+        "id": 1761671798466,
+        "purpose": "Food for Committee meeting",
+        "amount": 2180,
+        "date": "2025-10-28",
+        "type": "Food",
+        "persons": [
+            "Dipu"
+        ],
+        "comments": "Ordered food for committee meeting",
+        "receipts": [
+            {
+                "url": "./receipts/cafe_voucher-1761673024803.jpeg",
+                "filename": "cafe_voucher-1761673024803.jpeg",
+                "description": "Voucher"
+            }
+        ]
+    },
+    {
+        "id": 1761671850051,
+        "purpose": "Advance payment for Flashmob",
+        "amount": 5000,
+        "date": "2025-10-28",
+        "type": "Flashmob",
+        "persons": [
+            "Wasi",
+            "Shezan",
+            "Minhaz"
+        ],
+        "comments": "Advance payment for Flashmob",
+        "receipts": [
+            {
+                "url": "./receipts/flashmob-1761671838251.jpeg",
+                "filename": "flashmob-1761671838251.jpeg",
+                "description": "Voucher"
+            },
+            {
+                "url": "./receipts/bkash_2-1761671847635.jpeg",
+                "filename": "bkash_2-1761671847635.jpeg",
+                "description": "bKash"
+            }
+        ]
     }
 ]

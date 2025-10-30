@@ -718,5 +718,17 @@
                 "description": "Voucher"
             }
         ]
+    },
+    {
+        "id": 1761844698795,
+        "purpose": "Facebook post design",
+        "amount": 1000,
+        "date": "2025-10-30",
+        "type": "Marketing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Payment to graphic designer",
+        "receipts": []
     }
 ]

@@ -612,6 +612,35 @@
 
             // Category colored dot: stable mapping from category text to Tailwind bg-* color
             function getCategoryDotColor(category) {
+                // Preset colors for specific categories
+                const presetDots = {
+                    'Main Band': 'bg-red-500',
+                    'Flashmob': 'bg-orange-500',
+                    'Theme Song Production': 'bg-amber-500',
+                    'Local Band': 'bg-yellow-500',
+                    'Sound System': 'bg-lime-500',
+                    'Lighting & Stage': 'bg-green-500',
+                    'Band Hospitality': 'bg-emerald-500',
+                    'Camera & Videography': 'bg-teal-500',
+                    'Opening Ceremony': 'bg-cyan-500',
+                    'Banner Unveiling Ceremony': 'bg-slate-500',
+                    'T-shirt': 'bg-blue-500',
+                    'Banner': 'bg-indigo-500',
+                    'Marketing': 'bg-violet-500',
+                    'Graffiti Art': 'bg-purple-500',
+                    'Logo Design': 'bg-fuchsia-500',
+                    'Lunch': 'bg-pink-500',
+                    'Crest': 'bg-rose-500',
+                    'Printing': 'bg-sky-500',
+                    'Miscellaneous': 'bg-gray-500'
+                };
+                
+                // Return preset color if category exists
+                if (presetDots[category]) {
+                    return presetDots[category];
+                }
+                
+                // Otherwise, generate random color
                 const dots = [
                     'bg-blue-500','bg-purple-500','bg-yellow-500','bg-pink-500',
                     'bg-indigo-500','bg-red-500','bg-green-500','bg-amber-500'
@@ -632,8 +661,47 @@
                     .replace(/_+/g, '_');          // collapse multiple underscores
             }
 
+            // Shorten category names for display
+            function shortenCategoryName(category) {
+                const shortenMap = {
+                    'Theme Song Production': 'Theme Song',
+                    'Camera & Videography': 'Camera',
+                    'Banner Unveiling Ceremony': 'Banner Reveal'
+                };
+                return shortenMap[category] || category;
+            }
+
             // Small pastel badge for table remains as-is
             function getCategoryColor(category) {
+                // Preset colors for specific categories
+                const presetColors = {
+                    'Main Band': 'bg-red-100 text-red-800',
+                    'Flashmob': 'bg-orange-100 text-orange-800',
+                    'Theme Song Production': 'bg-amber-100 text-amber-800',
+                    'Local Band': 'bg-yellow-100 text-yellow-800',
+                    'Sound System': 'bg-lime-100 text-lime-800',
+                    'Lighting & Stage': 'bg-green-100 text-green-800',
+                    'Band Hospitality': 'bg-emerald-100 text-emerald-800',
+                    'Camera & Videography': 'bg-teal-100 text-teal-800',
+                    'Opening Ceremony': 'bg-cyan-100 text-cyan-800',
+                    'Banner Unveiling Ceremony': 'bg-sky-100 text-sky-800',
+                    'T-shirt': 'bg-blue-100 text-blue-800',
+                    'Banner': 'bg-indigo-100 text-indigo-800',
+                    'Marketing': 'bg-violet-100 text-violet-800',
+                    'Graffiti Art': 'bg-purple-100 text-purple-800',
+                    'Logo Design': 'bg-fuchsia-100 text-fuchsia-800',
+                    'Lunch': 'bg-pink-100 text-pink-800',
+                    'Crest': 'bg-rose-100 text-rose-800',
+                    'Printing': 'bg-slate-100 text-slate-800',
+                    'Miscellaneous': 'bg-gray-100 text-gray-800'
+                };
+                
+                // Return preset color if category exists
+                if (presetColors[category]) {
+                    return presetColors[category];
+                }
+                
+                // Otherwise, generate random color
                 const colors = [
                     "bg-blue-100 text-blue-800", "bg-purple-100 text-purple-800",
                     "bg-yellow-100 text-yellow-800", "bg-purple-100 text-purple-800",
@@ -653,7 +721,7 @@
                     { value: 'all', label: 'All Categories', dotClass: 'bg-gray-400', count: expenses.length },
                     ...categories.map(c => ({
                         value: c,
-                        label: c,
+                        label: shortenCategoryName(c),
                         dotClass: getCategoryDotColor(c),
                         count: categoryCounts[c] || 0
                     }))
@@ -832,7 +900,7 @@
                         <td class="px-6 py-4 hidden lg:table-cell">${formatDate(expense.date)}</td>
                         <td class="px-6 py-4 hidden sm:table-cell">
                             <span class="px-2 py-1 text-xs font-medium rounded-full ${badgeClass}">
-                                ${expense.type}
+                                ${shortenCategoryName(expense.type)}
                             </span>
                         </td>
                         <td class="px-6 py-4 text-right font-medium text-gray-900">${formatCurrency(expense.amount)}</td>
@@ -974,6 +1042,35 @@
              * @returns {string} Tailwind CSS classes for the badge.
              */
             function getCategoryColor(category) {
+                // Preset colors for specific categories
+                const presetColors = {
+                    'Main Band': 'bg-red-100 text-red-800',
+                    'Flashmob': 'bg-orange-100 text-orange-800',
+                    'Theme Song Production': 'bg-amber-100 text-amber-800',
+                    'Local Band': 'bg-yellow-100 text-yellow-800',
+                    'Sound System': 'bg-lime-100 text-lime-800',
+                    'Lighting & Stage': 'bg-green-100 text-green-800',
+                    'Band Hospitality': 'bg-emerald-100 text-emerald-800',
+                    'Camera & Videography': 'bg-teal-100 text-teal-800',
+                    'Opening Ceremony': 'bg-cyan-100 text-cyan-800',
+                    'Banner Unveiling Ceremony': 'bg-sky-100 text-sky-800',
+                    'T-shirt': 'bg-blue-100 text-blue-800',
+                    'Banner': 'bg-indigo-100 text-indigo-800',
+                    'Marketing': 'bg-violet-100 text-violet-800',
+                    'Graffiti Art': 'bg-purple-100 text-purple-800',
+                    'Logo Design': 'bg-fuchsia-100 text-fuchsia-800',
+                    'Lunch': 'bg-pink-100 text-pink-800',
+                    'Crest': 'bg-rose-100 text-rose-800',
+                    'Printing': 'bg-slate-100 text-slate-800',
+                    'Miscellaneous': 'bg-gray-100 text-gray-800'
+                };
+                
+                // Return preset color if category exists
+                if (presetColors[category]) {
+                    return presetColors[category];
+                }
+                
+                // Otherwise, generate random color
                 const colors = [
                     "bg-blue-100 text-blue-800", "bg-purple-100 text-purple-800",
                     "bg-yellow-100 text-yellow-800", "bg-purple-100 text-purple-800",

@@ -4,7 +4,7 @@
         "purpose": "Website Domain",
         "amount": 1278.9,
         "date": "2025-08-17",
-        "type": "Digital",
+        "type": "Miscellaneous",
         "persons": [
             "Wasi"
         ],
@@ -83,7 +83,7 @@
         "purpose": "Reels of Wedding Banner shoot advance",
         "amount": 4000,
         "date": "2025-09-13",
-        "type": "Camera",
+        "type": "Camera & Videography",
         "persons": [
             "Wasi",
             "Shezan",
@@ -105,7 +105,7 @@
         "purpose": "Banner Reveal - Decoration",
         "amount": 370,
         "date": "2025-09-14",
-        "type": "Decoration",
+        "type": "Banner Unveiling Ceremony",
         "persons": [
             "Nafiz",
             "Anam",
@@ -131,7 +131,7 @@
         "purpose": "Banner Reveal - Hooks",
         "amount": 130,
         "date": "2025-09-14",
-        "type": "Decoration",
+        "type": "Banner Unveiling Ceremony",
         "persons": [
             "Tanvir",
             "Minhaz"
@@ -155,7 +155,7 @@
         "purpose": "Lyrics Making",
         "amount": 4000,
         "date": "2025-09-21",
-        "type": "Theme Song",
+        "type": "Theme Song Production",
         "persons": [
             "Wasi",
             "Shezan"
@@ -179,7 +179,7 @@
         "purpose": "Reel shoot Decoration",
         "amount": 200,
         "date": "2025-09-22",
-        "type": "Decoration",
+        "type": "Miscellaneous",
         "persons": [
             "Ridoy"
         ],
@@ -197,7 +197,7 @@
         "purpose": "Food & Drinks",
         "amount": 210,
         "date": "2025-09-22",
-        "type": "Food",
+        "type": "Lunch",
         "persons": [
             "Tanvir",
             "Maruf"
@@ -216,7 +216,7 @@
         "purpose": "Theme song recording",
         "amount": 6000,
         "date": "2025-09-26",
-        "type": "Theme Song",
+        "type": "Theme Song Production",
         "persons": [
             "Wasi"
         ],
@@ -257,7 +257,7 @@
         "purpose": "Facebook post design",
         "amount": 1000,
         "date": "2025-09-27",
-        "type": "Digital",
+        "type": "Marketing",
         "persons": [
             "Wasi"
         ],
@@ -275,7 +275,7 @@
         "purpose": "Theme song recording",
         "amount": 5000,
         "date": "2025-09-28",
-        "type": "Theme Song",
+        "type": "Theme Song Production",
         "persons": [
             "Wasi",
             "Shezan"
@@ -336,7 +336,7 @@
         "purpose": "Banner Reveal - Food",
         "amount": 1050,
         "date": "2025-09-14",
-        "type": "Food",
+        "type": "Banner Unveiling Ceremony",
         "persons": [
             "Tanvir"
         ],
@@ -354,7 +354,7 @@
         "purpose": "Sponsor letter stationary",
         "amount": 210,
         "date": "2025-10-04",
-        "type": "Sponsors",
+        "type": "Miscellaneous",
         "persons": [
             "Shezan"
         ],
@@ -377,7 +377,7 @@
         "purpose": "Sponsor letter to Square",
         "amount": 50,
         "date": "2025-10-04",
-        "type": "Sponsors",
+        "type": "Miscellaneous",
         "persons": [
             "Wasi"
         ],
@@ -449,7 +449,7 @@
         "purpose": "Postage to send sponsor letters",
         "amount": 395,
         "date": "2025-10-05",
-        "type": "Sponsors",
+        "type": "Miscellaneous",
         "persons": [
             "Wasi"
         ],
@@ -467,7 +467,7 @@
         "purpose": "Dark Slayer Advance",
         "amount": 4000,
         "date": "2025-10-12",
-        "type": "Band",
+        "type": "Local Band",
         "persons": [
             "Wasi",
             "Shezan"
@@ -486,7 +486,7 @@
         "purpose": "Graffiti",
         "amount": 11340,
         "date": "2025-10-18",
-        "type": "Graffiti",
+        "type": "Graffiti Art",
         "persons": [
             "Wasi"
         ],
@@ -602,7 +602,7 @@
         "purpose": "Band Advance",
         "amount": 100000,
         "date": "2025-10-25",
-        "type": "Band",
+        "type": "Main Band",
         "persons": [
             "Wasi"
         ],
@@ -625,7 +625,7 @@
         "purpose": "Food for Committee meeting",
         "amount": 2180,
         "date": "2025-10-28",
-        "type": "Food",
+        "type": "Lunch",
         "persons": [
             "Dipu"
         ],
@@ -668,7 +668,7 @@
         "purpose": "Sanai Event Management Advance",
         "amount": 15000,
         "date": "2025-10-30",
-        "type": "Stage & Lighting",
+        "type": "Lighting & Stage",
         "persons": [
             "Wasi",
             "Shezan",

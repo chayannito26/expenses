@@ -599,7 +599,7 @@
     },
     {
         "id": 1761420503343,
-        "purpose": "Bank Advance",
+        "purpose": "Band Advance",
         "amount": 100000,
         "date": "2025-10-25",
         "type": "Band",
@@ -609,9 +609,14 @@
         "comments": "Advance payment to AvoidRafa",
         "receipts": [
             {
-                "url": "./receipts/ebl_band-1761420488763.jpg",
+                "description": "Payment to Band Manager Rais",
                 "filename": "ebl_band-1761420488763.jpg",
-                "description": "Payment to Band Manager Rais"
+                "url": "./receipts/ebl_band-1761420488763.jpg"
+            },
+            {
+                "url": "./receipts/band_2-1761673100031.jpeg",
+                "filename": "band_2-1761673100031.jpeg",
+                "description": "Received"
             }
         ]
     },
@@ -655,6 +660,62 @@
                 "url": "./receipts/bkash_2-1761671847635.jpeg",
                 "filename": "bkash_2-1761671847635.jpeg",
                 "description": "bKash"
+            }
+        ]
+    },
+    {
+        "id": 1761836011170,
+        "purpose": "Sanai Event Management Advance",
+        "amount": 15000,
+        "date": "2025-10-30",
+        "type": "Stage & Lighting",
+        "persons": [
+            "Wasi",
+            "Shezan",
+            "Akib"
+        ],
+        "comments": "Payment to event management",
+        "receipts": []
+    },
+    {
+        "id": 1761842255311,
+        "purpose": "Sound System",
+        "amount": 30000,
+        "date": "2025-10-30",
+        "type": "Sound System",
+        "persons": [
+            "Wasi",
+            "Shezan"
+        ],
+        "comments": "Advance payment for sound system",
+        "receipts": [
+            {
+                "url": "./receipts/sound_1-1761842235205.jpeg",
+                "filename": "sound_1-1761842235205.jpeg",
+                "description": "Sound System payment"
+            },
+            {
+                "url": "./receipts/sound-1761842247745.jpeg",
+                "filename": "sound-1761842247745.jpeg",
+                "description": "Sound"
+            }
+        ]
+    },
+    {
+        "id": 1761842308469,
+        "purpose": "Bulk SMS Sending",
+        "amount": 2190,
+        "date": "2025-10-29",
+        "type": "Marketing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Payment for sending bulk sms",
+        "receipts": [
+            {
+                "url": "./receipts/bulk_sms-1761842288726.jpeg",
+                "filename": "bulk_sms-1761842288726.jpeg",
+                "description": "Voucher"
             }
         ]
     }

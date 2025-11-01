@@ -736,5 +736,30 @@
                 "description": "Voucher"
             }
         ]
+    },
+    {
+        "id": 1761974307580,
+        "purpose": "Karnival Band Advance",
+        "amount": 30000,
+        "date": "2025-11-01",
+        "type": "Second Band",
+        "persons": [
+            "Wasi",
+            "Shezan",
+            "Talha"
+        ],
+        "comments": "100k due",
+        "receipts": [
+            {
+                "description": "Karnival Received",
+                "filename": "karnival-1761974210346.jpg",
+                "url": "./receipts/karnival-1761974210346.jpg"
+            },
+            {
+                "description": "EBL Transfer receipt",
+                "filename": "ebl_receipt_karnival-1761974303978.jpeg",
+                "url": "./receipts/ebl_receipt_karnival-1761974303978.jpeg"
+            }
+        ]
     }
 ]

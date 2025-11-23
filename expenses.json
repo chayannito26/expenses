@@ -761,5 +761,72 @@
                 "url": "./receipts/ebl_receipt_karnival-1761974303978.jpeg"
             }
         ]
+    },
+    {
+        "id": 1763826582372,
+        "purpose": "Food for Theme Song Shoot",
+        "amount": 350,
+        "date": "2025-11-18",
+        "type": "Lunch",
+        "persons": [
+            "Dipu",
+            "Roddro"
+        ],
+        "comments": "Food for committee members and cinematographer",
+        "receipts": []
+    },
+    {
+        "id": 1763827368143,
+        "purpose": "Facebook Post Boost",
+        "amount": 335.8,
+        "date": "2025-10-17",
+        "type": "Marketing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "For boosting the radhuni presents poster",
+        "receipts": [
+            {
+                "url": "./receipts/boost_receipt-1763827336712.jpg",
+                "filename": "boost_receipt-1763827336712.jpg",
+                "description": "Payment Invoice"
+            }
+        ]
+    },
+    {
+        "id": 1763827422489,
+        "purpose": "Facebook Post Boost",
+        "amount": 277.15,
+        "date": "2025-10-12",
+        "type": "Marketing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "For boosting the radhuni presents post",
+        "receipts": [
+            {
+                "url": "./receipts/booting_invoice-1763827393743.jpg",
+                "filename": "booting_invoice-1763827393743.jpg",
+                "description": "Payment Invoice"
+            }
+        ]
+    },
+    {
+        "id": 1763827505814,
+        "purpose": "Facebook Reel Boost",
+        "amount": 276.4,
+        "date": "2025-11-22",
+        "type": "Marketing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "For boosting the car reel",
+        "receipts": [
+            {
+                "url": "./receipts/boost_1-1763827485941.jpg",
+                "filename": "boost_1-1763827485941.jpg",
+                "description": "Payment Invoice"
+            }
+        ]
     }
 ]

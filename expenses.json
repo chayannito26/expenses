@@ -840,5 +840,29 @@
         ],
         "comments": "Printing entry pass",
         "receipts": []
+    },
+    {
+        "id": 1764093373887,
+        "purpose": "Dark Slayer Final Payment",
+        "amount": 4000,
+        "date": "2025-11-25",
+        "type": "Local Band",
+        "persons": [
+            "Wasi",
+            "Shezan"
+        ],
+        "comments": "Payment clear",
+        "receipts": [
+            {
+                "url": "./receipts/local_band_bkash-1764093357415.jpeg",
+                "filename": "local_band_bkash-1764093357415.jpeg",
+                "description": "bKash Payment"
+            },
+            {
+                "url": "./receipts/localband_ss-1764093369752.jpeg",
+                "filename": "localband_ss-1764093369752.jpeg",
+                "description": "Money Received"
+            }
+        ]
     }
 ]

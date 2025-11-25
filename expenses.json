@@ -828,5 +828,17 @@
                 "description": "Payment Invoice"
             }
         ]
+    },
+    {
+        "id": 1764062670741,
+        "purpose": "Entry Pass Printing",
+        "amount": 3000,
+        "date": "2025-11-20",
+        "type": "Printing",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "Printing entry pass",
+        "receipts": []
     }
 ]

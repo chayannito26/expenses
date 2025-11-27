@@ -864,5 +864,20 @@
                 "description": "Money Received"
             }
         ]
+    },
+    {
+        "id": 1764239690791,
+        "purpose": "T Shirt",
+        "amount": 13000,
+        "date": "2025-11-27",
+        "type": "T-shirt",
+        "persons": [
+            "Wasi",
+            "Anam",
+            "Rohan",
+            "Rafiu"
+        ],
+        "comments": "advance",
+        "receipts": []
     }
 ]

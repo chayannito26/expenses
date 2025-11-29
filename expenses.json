@@ -879,5 +879,32 @@
         ],
         "comments": "advance",
         "receipts": []
+    },
+    {
+        "id": 1764438270873,
+        "purpose": "Gift for Chatrodol",
+        "amount": 2500,
+        "date": "2025-11-29",
+        "type": "Miscellaneous",
+        "persons": [
+            "Wasi",
+            "Dipu"
+        ],
+        "comments": "Nothing to do",
+        "receipts": []
+    },
+    {
+        "id": 1764438789612,
+        "purpose": "`AvoidRafa Hotel Booking",
+        "amount": 25000,
+        "date": "2025-11-29",
+        "type": "Band Hospitality",
+        "persons": [
+            "Wasi",
+            "Shezan",
+            "Hemel"
+        ],
+        "comments": "37.5k total",
+        "receipts": []
     }
 ]

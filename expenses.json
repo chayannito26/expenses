@@ -906,5 +906,18 @@
         ],
         "comments": "37.5k total",
         "receipts": []
+    },
+    {
+        "id": 1764441690864,
+        "purpose": "Band final payment",
+        "amount": 180000,
+        "date": "2025-11-30",
+        "type": "Main Band",
+        "persons": [
+            "Wasi",
+            "Shezan"
+        ],
+        "comments": "avoidrafa full payment done",
+        "receipts": []
     }
 ]

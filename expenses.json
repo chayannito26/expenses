@@ -919,5 +919,57 @@
         ],
         "comments": "avoidrafa full payment done",
         "receipts": []
+    },
+    {
+        "id": 1764489556075,
+        "purpose": "sound system final",
+        "amount": 70000,
+        "date": "2025-11-30",
+        "type": "Sound System",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "",
+        "receipts": []
+    },
+    {
+        "id": 1764489589544,
+        "purpose": "crest advance",
+        "amount": 1000,
+        "date": "2025-11-30",
+        "type": "Crest",
+        "persons": [
+            "Wasi",
+            "Nafiz",
+            "Anam"
+        ],
+        "comments": "",
+        "receipts": []
+    },
+    {
+        "id": 1764489698473,
+        "purpose": "food packet advance",
+        "amount": 2000,
+        "date": "2025-11-30",
+        "type": "Food",
+        "persons": [
+            "Shafi",
+            "Shezan"
+        ],
+        "comments": "",
+        "receipts": []
+    },
+    {
+        "id": 1764490031946,
+        "purpose": "Reels of wedding",
+        "amount": 15000,
+        "date": "2025-11-30",
+        "type": "Lighting & Stage",
+        "persons": [
+            "Wasi",
+            "Munna"
+        ],
+        "comments": "",
+        "receipts": []
     }
 ]

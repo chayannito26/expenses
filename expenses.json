@@ -81,7 +81,7 @@
     {
         "id": 1757749087726,
         "purpose": "Reels of Wedding Banner shoot advance",
-        "amount": 4000,
+        "amount": 5000,
         "date": "2025-09-13",
         "type": "Camera & Videography",
         "persons": [
@@ -94,9 +94,9 @@
         "comments": "For banner shoot",
         "receipts": [
             {
-                "url": "./receipts/reels_of_wedding-1757852171039.jpeg",
+                "description": "Voucher",
                 "filename": "reels_of_wedding-1757852171039.jpeg",
-                "description": "Voucher"
+                "url": "./receipts/reels_of_wedding-1757852171039.jpeg"
             }
         ]
     },
@@ -961,13 +961,27 @@
     },
     {
         "id": 1764490031946,
-        "purpose": "Reels of wedding",
+        "purpose": "Shanai",
         "amount": 15000,
         "date": "2025-11-30",
         "type": "Lighting & Stage",
         "persons": [
             "Wasi",
             "Munna"
+        ],
+        "comments": "",
+        "receipts": []
+    },
+    {
+        "id": 1764523985958,
+        "purpose": "Shanai Advance",
+        "amount": 30000,
+        "date": "2025-11-30",
+        "type": "Lighting & Stage",
+        "persons": [
+            "Wasi",
+            "Shezan",
+            "Dipu"
         ],
         "comments": "",
         "receipts": []

@@ -989,7 +989,7 @@
     {
         "id": 1764569734863,
         "purpose": "sound",
-        "amount": 1500,
+        "amount": 2000,
         "date": "2025-12-01",
         "type": "Sound System",
         "persons": [
@@ -1057,6 +1057,30 @@
         "persons": [
             "Wasi",
             "Shomudro"
+        ],
+        "comments": "",
+        "receipts": []
+    },
+    {
+        "id": 1764616866575,
+        "purpose": "stage and lighting ",
+        "amount": 15000,
+        "date": "2025-12-01",
+        "type": "Lighting & Stage",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "",
+        "receipts": []
+    },
+    {
+        "id": 1764618104470,
+        "purpose": "Crest",
+        "amount": 2350,
+        "date": "2025-12-01",
+        "type": "Crest",
+        "persons": [
+            "Ahona"
         ],
         "comments": "",
         "receipts": []

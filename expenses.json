@@ -985,5 +985,29 @@
         ],
         "comments": "",
         "receipts": []
+    },
+    {
+        "id": 1764569734863,
+        "purpose": "sound",
+        "amount": 1500,
+        "date": "2025-12-01",
+        "type": "Sound System",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "asdf",
+        "receipts": []
+    },
+    {
+        "id": 1764569839579,
+        "purpose": "khabar ",
+        "amount": 20000,
+        "date": "2025-12-01",
+        "type": "Food",
+        "persons": [
+            "Wasi"
+        ],
+        "comments": "shafi abir",
+        "receipts": []
     }
 ]

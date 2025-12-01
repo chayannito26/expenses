@@ -1,0 +1,31 @@
+{
+  "duplicate_ids": [],
+  "duplicate_entries_same_purpose_amount_date": [],
+  "duplicate_receipt_urls": [
+    {
+      "url": "/",
+      "count": 2,
+      "occurrences": []
+    }
+  ],
+  "duplicate_receipt_filenames": [
+    {
+      "filename": "print_house_3.jpg",
+      "count": 2,
+      "occurrences": [
+        {
+          "index": 21,
+          "id": 1760024871714,
+          "purpose": "Banner + Coupon + Logo",
+          "amount": 5000
+        },
+        {
+          "index": 22,
+          "id": 17600248712714,
+          "purpose": "Logo",
+          "amount": 1000
+        }
+      ]
+    }
+  ]
+}

@@ -1084,5 +1084,43 @@
         ],
         "comments": "",
         "receipts": []
+    },
+    {
+        "id": 1764618927624,
+        "purpose": "For lunch",
+        "amount": 35000,
+        "date": "2025-12-01",
+        "type": "Lunch",
+        "persons": [
+            "Shafi"
+        ],
+        "comments": "",
+        "receipts": []
+    },
+    {
+        "id": 1764619048076,
+        "purpose": "Band Khawa",
+        "amount": 2000,
+        "date": "2025-12-01",
+        "type": "Band Hospitality",
+        "persons": [
+            "Shezan"
+        ],
+        "comments": "",
+        "receipts": []
+    },
+    {
+        "id": 1764619071979,
+        "purpose": "Food Packet final",
+        "amount": 2000,
+        "date": "2025-12-01",
+        "type": "Lunch",
+        "persons": [
+            "Shafi",
+            "Abir",
+            "Kaif"
+        ],
+        "comments": "",
+        "receipts": []
     }
 ]
